@@ -1,6 +1,7 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import axios from "axios";
 import CurrentMedsList from "./components/CurrentMedsList";
 import CompleteMedHistory from "./components/CompleteMedHistory";
 import NewMedForm from "./components/NewMedForm";
@@ -9,6 +10,13 @@ import { RxProvider } from "./context/RxContext";
 
 function App() {
   const [medications, setMedications] = useState([]);
+
+  // const fetchRx = async () => {
+  //   const response = await fetch(`http://localhost:5000/medications`);
+  //   console.log("response promise:", response);
+  //   const data = await response.json();
+  //   console.log(data);
+  // };
 
   const addMed = (newMed) => {
     //make Create Request
@@ -27,9 +35,9 @@ function App() {
                 path="/"
                 element={
                   <div>
-                    <CurrentMedsList medications={medications} />
-                    <CompleteMedHistory medications={medications} />
-                    <NewMedForm handleAdd={addMed} />
+                    <CurrentMedsList />
+                    <CompleteMedHistory />
+                    <NewMedForm />
                   </div>
                 }
               ></Route>

@@ -1,5 +1,7 @@
-import { useState } from "react";
-const NewMedForm = ({ handleAdd }) => {
+import { useState, useContext } from "react";
+import RxContext from "../context/RxContext";
+const NewMedForm = () => {
+  const { addMed } = useContext(RxContext);
   const [medName, setMedName] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
@@ -23,7 +25,7 @@ const NewMedForm = ({ handleAdd }) => {
       const newMed = {
         medName,
       };
-      handleAdd(newMed);
+      addMed(newMed);
     }
   };
   return (

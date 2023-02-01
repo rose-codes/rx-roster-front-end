@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const RxContext = createContext();
 
@@ -23,6 +24,52 @@ export const RxProvider = ({ children }) => {
       __v: 0,
     },
   ]);
+
+  useEffect(() => {
+    getMedications();
+  }, []);
+
+  const getMedications = async () => {
+    const response = await fetch("/medications");
+    const data = await response.json();
+    setMedications(data);
+  };
+
+  // const getMedicationById = async (id) => {
+  //   const response = await fetch(`/medications/${id}`);
+  //   const data = await response.json();
+  //   setMedications(data)
+  // }
+  const addMed = async (newMed) => {
+    const response = await fetch("/medications", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newMed),
+    });
+    const data = await response.json();
+    setMedications([data, ...medications]);
+  };
+
+  const deleteMed = async (id) => {
+    await fetch(`/medications/${id}`, { method: "DELETE" });
+  };
+
+  const updateMed = async (id, updItem) => {
+    const response = await fetch(`/medications/${id}`, {
+      method: "UPDATE",
+      headers: { "Content-Type": "applications/json" },
+      body: JSON.stringify(updItem),
+    });
+    const data = await response.json();
+    setMedications(
+      medications.map((med) => {
+        return med._id === id ? { ...med, ...data } : med;
+      })
+    );
+  };
+
   return (
     <RxContext.Provider
       value={{
