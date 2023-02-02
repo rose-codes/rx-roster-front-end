@@ -29,6 +29,7 @@ export const RxProvider = ({ children }) => {
     getMedications();
   }, []);
 
+  // @todo: refactor routes with Axios
   const getMedications = async () => {
     const response = await fetch("/medications");
     const data = await response.json();
