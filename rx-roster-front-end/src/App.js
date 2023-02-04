@@ -1,20 +1,11 @@
 import "./App.css";
-import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CurrentMedsList from "./components/CurrentMedsList";
-import CompleteMedHistory from "./components/CompleteMedHistory";
-import NewMedForm from "./components/NewMedForm";
+import AllMedsPage from "./pages/AllMedsPage";
 import AboutPage from "./pages/AboutPage";
 import { RxProvider } from "./context/RxContext";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  const [medications, setMedications] = useState([]);
-
-  const addMed = (newMed) => {
-    //make Create Request
-    //setMedications([newMed, ...medications])
-    console.log(newMed);
-  };
   return (
     <RxProvider>
       <Router>
@@ -22,18 +13,10 @@ function App() {
           <h1>Rx Roster</h1>
           <div className="container">
             <Routes>
-              <Route
-                exact
-                path="/"
-                element={
-                  <div>
-                    <CurrentMedsList />
-                    <CompleteMedHistory />
-                    <NewMedForm />
-                  </div>
-                }
-              ></Route>
+              <Route exact path="/" element={<Dashboard />}></Route>
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/all-medications" element={<AllMedsPage />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </div>
         </div>

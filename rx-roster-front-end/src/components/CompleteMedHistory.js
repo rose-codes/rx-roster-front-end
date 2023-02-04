@@ -2,7 +2,7 @@ import { useContext } from "react";
 import HistoryMed from "./HistoryMed";
 import RxContext from "../context/RxContext";
 
-const CompleteMedHistory = ({}) => {
+const CompleteMedHistory = () => {
   const { medications } = useContext(RxContext);
   if (!medications || medications.length === 0) {
     return <p>No Medications Yet</p>;

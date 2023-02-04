@@ -25,8 +25,11 @@ export const RxProvider = ({ children }) => {
     },
   ]);
 
+  const [currentMeds, setCurrentMeds] = useState([]);
+
   useEffect(() => {
     getMedications();
+    getCurrentMedications();
   }, []);
 
   // @todo: refactor routes with Axios
@@ -36,11 +39,14 @@ export const RxProvider = ({ children }) => {
     setMedications(data);
   };
 
-  // const getMedicationById = async (id) => {
-  //   const response = await fetch(`/medications/${id}`);
-  //   const data = await response.json();
-  //   setMedications(data)
-  // }
+  const getCurrentMedications = async () => {
+    const response = await fetch(
+      "/medications?" + new URLSearchParams({ currentlyTaking: true })
+    );
+    const data = await response.json();
+    setCurrentMeds(data);
+  };
+
   const addMed = async (newMed) => {
     const response = await fetch("/medications", {
       method: "POST",
@@ -49,32 +55,51 @@ export const RxProvider = ({ children }) => {
       },
       body: JSON.stringify(newMed),
     });
+    if (response.status !== 200) {
+      const err = await response.json();
+      throw new Error({ message: err.message });
+    }
     const data = await response.json();
     setMedications([data, ...medications]);
+    // axios
+    //   .post("/medications", newMed)
+    //   .then((res) => {
+    //     setMedications([...medications, res.data]);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   const deleteMed = async (id) => {
     await fetch(`/medications/${id}`, { method: "DELETE" });
   };
 
-  const updateMed = async (id, updItem) => {
+  const updateMedsList = (medsList, res, id) => {
+    return medications.map((med) => {
+      return med._id === id ? { ...med, ...res } : med;
+    });
+  };
+
+  const updateMed = async (id, updKey) => {
+    console.log("Inside updateMed, updKey:", JSON.stringify(updKey));
     const response = await fetch(`/medications/${id}`, {
-      method: "UPDATE",
-      headers: { "Content-Type": "applications/json" },
-      body: JSON.stringify(updItem),
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updKey),
     });
     const data = await response.json();
-    setMedications(
-      medications.map((med) => {
-        return med._id === id ? { ...med, ...data } : med;
-      })
-    );
+    console.log("inside UpdateMed fxn data", data);
+    setMedications(updateMedsList(medications, data, id));
+    getCurrentMedications();
   };
 
   return (
     <RxContext.Provider
       value={{
         medications,
+        currentMeds,
+        addMed,
+        getCurrentMedications,
+        updateMed,
       }}
     >
       {children}
