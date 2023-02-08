@@ -269,21 +269,23 @@ const NewMedForm = () => {
           ></Form.Control>
         </Form.Group>
         {/* @todo - create dropdown of user's commonly used pharmacies + allow them to add another */}
-        <Form.Group className="mb-3" controlId="pharmacy">
-          <Form.Label>Pharmacy:</Form.Label>
-          <Form.Control
-            type="text"
-            {...register("pharmacyFilled")}
-            placeholder="Pharmacy"
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="manufacturer">
-          <Form.Label>Manufacturer:</Form.Label>
-          <Form.Control
-            type="text"
-            {...register("manufacturer")}
-            placeholder="Manufacturer"
-          ></Form.Control>
+        <Form.Group className="rx-label hstack gap-3">
+          <Form.Group className="mb-3" controlId="pharmacy">
+            <Form.Label>Pharmacy:</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("pharmacyFilled")}
+              placeholder="Pharmacy"
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="manufacturer">
+            <Form.Label>Manufacturer:</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("manufacturer")}
+              placeholder="Manufacturer"
+            ></Form.Control>
+          </Form.Group>
         </Form.Group>
         {/* @todo - if user provides manufacturer and other required fields, may be able to pre-populate with info from API */}
         <Form.Group className="mb-3" controlId="appearance">
@@ -294,43 +296,35 @@ const NewMedForm = () => {
             placeholder="Appearance"
           ></Form.Control>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="datePrescribed">
-          <Form.Label>Date Medication Was Prescribed:</Form.Label>
-          <Form.Control
-            className={`text-field ${errors.datePrescribed && "invalid"}`}
-            type="text"
-            {...register("datePrescribed", {
-              // required: {
-              //   value: true,
-              //   message: "Please indicated when the medication was started.",
-
-              // },
-              valueAsDate: {
-                value: true,
-                message: "Please provide a valid date",
-              },
-            })}
-            placeholder="Date Medication Started"
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="startDate">
-          <Form.Label>Date Medication Was Started:</Form.Label>
-          <Form.Control
-            className={`text-field ${errors.startDate && "invalid"}`}
-            type="text"
-            {...register("startDate", {
-              // required: {
-              //   value: true,
-              //   message: "Please indicated when the medication was started.",
-
-              // },
-              valueAsDate: {
-                value: true,
-                message: "Please provide a valid date",
-              },
-            })}
-            placeholder="Date Medication Started"
-          ></Form.Control>
+        <Form.Group className="dates hstack gap-3">
+          <Form.Group className="mb-3" controlId="datePrescribed">
+            <Form.Label>Date Prescribed:</Form.Label>
+            <Form.Control
+              className={`text-field ${errors.datePrescribed && "invalid"}`}
+              type="text"
+              {...register("datePrescribed", {
+                valueAsDate: {
+                  value: true,
+                  message: "Please provide a valid date",
+                },
+              })}
+              placeholder="Date Prescribed"
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="startDate">
+            <Form.Label>Date Started:</Form.Label>
+            <Form.Control
+              className={`text-field ${errors.startDate && "invalid"}`}
+              type="text"
+              {...register("startDate", {
+                valueAsDate: {
+                  value: true,
+                  message: "Please provide a valid date",
+                },
+              })}
+              placeholder="Date Medication Started"
+            ></Form.Control>
+          </Form.Group>
         </Form.Group>
         <Form.Group className="mb-3" controlId="sideEffects">
           <Form.Label>Side Effects:</Form.Label>

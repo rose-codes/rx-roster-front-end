@@ -14,7 +14,6 @@ function App() {
       <Router>
         <div className="App">
           <NavBar />
-          <h1>Rx Roster</h1>
         </div>
       </Router>
     </RxProvider>

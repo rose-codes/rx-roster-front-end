@@ -9,13 +9,14 @@ const Dashboard = () => {
     <Container>
       <Row>
         <h1>Welcome Back, User</h1>
-        <h2>Current Medications</h2>
       </Row>
       <Row>
         <Col>
+          <h3>Current Medications</h3>
           <CurrentMedsList />
         </Col>
         <Col>
+          <h3>Add a New Medication</h3>
           <NewMedForm />
         </Col>
       </Row>
