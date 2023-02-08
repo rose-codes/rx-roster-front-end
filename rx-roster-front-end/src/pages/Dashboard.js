@@ -1,21 +1,26 @@
-import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 import CurrentMedsList from "../components/CurrentMedsList";
+import NewMedForm from "../components/NewMedForm";
 import Footer from "../components/shared/Footer";
+// import NavBar from "../components/shared/NavBar";
 
 const Dashboard = () => {
   return (
-    <div className="dashboard">
-      <span>
-        <Link to="/about">About</Link>
-      </span>
-      <span>
-        <Link to="/all-medications">All Medications</Link>
-      </span>
-      <h1>Welcome Back, User</h1>
-      <h2>Current Medications</h2>
-      <CurrentMedsList />
+    <Container>
+      <Row>
+        <h1>Welcome Back, User</h1>
+        <h2>Current Medications</h2>
+      </Row>
+      <Row>
+        <Col>
+          <CurrentMedsList />
+        </Col>
+        <Col>
+          <NewMedForm />
+        </Col>
+      </Row>
       <Footer />
-    </div>
+    </Container>
   );
 };
 

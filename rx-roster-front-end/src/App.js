@@ -4,21 +4,17 @@ import AllMedsPage from "./pages/AllMedsPage";
 import AboutPage from "./pages/AboutPage";
 import { RxProvider } from "./context/RxContext";
 import Dashboard from "./pages/Dashboard";
+import NavBar from "./components/shared/NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap/dist/react-bootstrap";
 
 function App() {
   return (
     <RxProvider>
       <Router>
         <div className="App">
+          <NavBar />
           <h1>Rx Roster</h1>
-          <div className="container">
-            <Routes>
-              <Route exact path="/" element={<Dashboard />}></Route>
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/all-medications" element={<AllMedsPage />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Routes>
-          </div>
         </div>
       </Router>
     </RxProvider>

@@ -1,5 +1,5 @@
-import CurrentMed from "./CurrentMed";
 import RxContext from "../context/RxContext";
+import CardAccordion from "./shared/CardAccordion";
 import { useContext } from "react";
 
 const CurrentMedsList = () => {
@@ -7,7 +7,7 @@ const CurrentMedsList = () => {
   return (
     <ol className="current-meds-list">
       {currentMeds.map((med) => (
-        <CurrentMed key={med._id} med={med} />
+        <CardAccordion key={med._id} med={med} />
       ))}
     </ol>
   );

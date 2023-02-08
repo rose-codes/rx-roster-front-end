@@ -9,8 +9,8 @@ const CompleteMedHistory = () => {
   }
   return (
     <ol className="history-meds-list">
-      {medications.map((item) => (
-        <HistoryMed key={item.id} item={item} />
+      {medications.map((med) => (
+        <HistoryMed key={med.id} med={med} />
       ))}
     </ol>
   );

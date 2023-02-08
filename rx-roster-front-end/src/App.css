@@ -44,3 +44,11 @@
 .error-message {
   color: red
 }
+
+.medication-display {
+  border: 1px solid black
+}
+
+ol {
+  list-style: none;
+}
