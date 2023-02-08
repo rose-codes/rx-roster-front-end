@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import HistoryMed from "./HistoryMed";
 import RxContext from "../context/RxContext";
+import CardAccordion from "./shared/CardAccordion";
 
 const CompleteMedHistory = () => {
   const { medications } = useContext(RxContext);
@@ -10,7 +11,7 @@ const CompleteMedHistory = () => {
   return (
     <ol className="history-meds-list">
       {medications.map((med) => (
-        <HistoryMed key={med.id} med={med} />
+        <CardAccordion key={med.id} med={med} />
       ))}
     </ol>
   );
