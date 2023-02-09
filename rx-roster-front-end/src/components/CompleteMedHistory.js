@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import HistoryMed from "./HistoryMed";
 import RxContext from "../context/RxContext";
 import CardAccordion from "./shared/CardAccordion";
 

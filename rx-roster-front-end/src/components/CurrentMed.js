@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import RxContext from "../context/RxContext";
-import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import MedCard from "./shared/MedCard";
 
 const CurrentMed = ({ med }) => {
@@ -12,7 +12,7 @@ const CurrentMed = ({ med }) => {
   };
 
   return (
-    <li className="medication-display">
+    <li className="medication-display" key={med._id}>
       <div className="container">
         <MedCard med={med} />
         <Button onClick={handleButtonClick}>No Longer Taking</Button>

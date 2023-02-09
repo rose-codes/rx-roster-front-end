@@ -1,9 +1,5 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Nav, Navbar, Container } from "react-bootstrap";
-import AboutPage from "../../pages/AboutPage";
-import Dashboard from "../../pages/Dashboard";
-import AllMedsPage from "../../pages/AllMedsPage";
-import NotFound from "../../pages/NotFound";
 
 const NavBar = () => {
   return (
@@ -34,14 +30,6 @@ const NavBar = () => {
           </Nav>
         </Container>
       </Navbar>
-      <div className="routes-container">
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/all-medications" element={<AllMedsPage />} />
-          <Route path="/404" element={<NotFound />} />
-        </Routes>
-      </div>
     </div>
   );
 };
