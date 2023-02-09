@@ -26,8 +26,7 @@ export const RxProvider = ({ children }) => {
   ]);
 
   const [currentMeds, setCurrentMeds] = useState([]);
-  const backendURI = process.env.BACKEND_URI;
-  console.log(backendURI);
+  const backendURI = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     getMedications();
@@ -40,10 +39,18 @@ export const RxProvider = ({ children }) => {
 
   // @todo: refactor routes with Axios
   const getMedications = async () => {
-    console.log(`${process.env.BACKEND_URI}/medications`);
-    const response = await fetch(`${process.env.BACKEND_URI}/medications`);
+    const response = await fetch(`${backendURI}/medications`);
     const data = await response.json();
     setMedications(data);
+    // axios
+    //   .get(`${process.env.REACT_APP_BACKEND_URL}/medications`)
+    //   .then((res) => {
+    //     const medsList = res.data.map((med) => {
+    //       return med;
+    //     });
+    //     setMedications(medsList);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   const getCurrentMedications = async () => {
