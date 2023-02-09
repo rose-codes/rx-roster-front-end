@@ -6,7 +6,7 @@ import FormInput from "./shared/FormInput";
 
 const defaultValues = {
   brandName: "",
-  // genericName: "",
+  genericName: "",
   strength: 0,
   strengthUnits: "",
   quantity: 0,

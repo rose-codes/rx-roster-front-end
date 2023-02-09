@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Rx-Roster Front-End
+
+This project allows users to access their medication history, current medications list, and add new medications. Users have to register with the website first and login each time to access their medications. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

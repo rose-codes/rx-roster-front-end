@@ -8,6 +8,9 @@ import NotFound from "./pages/NotFound";
 import NavBar from "./components/shared/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap/dist/react-bootstrap";
+import LoginPage from "./pages/LoginPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
@@ -19,7 +22,10 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/all-medications" element={<AllMedsPage />} />
-        <Route path="/404" element={<NotFound />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </RxProvider>
   );
