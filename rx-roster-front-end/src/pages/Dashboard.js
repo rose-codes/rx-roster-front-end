@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <Container>
       <Row>
-        <h1>Welcome Back, User</h1>
+        <h1 className="p-3 m-3">Welcome Back, User</h1>
       </Row>
       <Row>
         <Col>

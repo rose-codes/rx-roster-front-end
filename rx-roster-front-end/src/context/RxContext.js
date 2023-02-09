@@ -26,41 +26,49 @@ export const RxProvider = ({ children }) => {
   ]);
 
   const [currentMeds, setCurrentMeds] = useState([]);
+  const backendURI = process.env.BACKEND_URI;
+  console.log(backendURI);
 
   useEffect(() => {
     getMedications();
     getCurrentMedications();
   }, []);
 
+  useEffect(() => {
+    getCurrentMedications();
+  }, [medications]);
+
   // @todo: refactor routes with Axios
   const getMedications = async () => {
-    const response = await fetch("/medications");
+    console.log(`${process.env.BACKEND_URI}/medications`);
+    const response = await fetch(`${process.env.BACKEND_URI}/medications`);
     const data = await response.json();
     setMedications(data);
   };
 
   const getCurrentMedications = async () => {
     const response = await fetch(
-      "/medications?" + new URLSearchParams({ currentlyTaking: true })
+      `${backendURI}/medications?` +
+        new URLSearchParams({ currentlyTaking: true })
     );
     const data = await response.json();
     setCurrentMeds(data);
   };
 
   const addMed = async (newMed) => {
-    const response = await fetch("/medications", {
+    const response = await fetch(`${backendURI}/medications`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newMed),
     });
-    if (response.status !== 200) {
+    if (response.status !== 201) {
       const err = await response.json();
-      throw new Error({ message: err.message });
+      return console.log(err);
     }
     const data = await response.json();
-    setMedications([data, ...medications]);
+    setMedications([...medications, data]);
     // axios
     //   .post("/medications", newMed)
     //   .then((res) => {
@@ -70,7 +78,7 @@ export const RxProvider = ({ children }) => {
   };
 
   const deleteMed = async (id) => {
-    await fetch(`/medications/${id}`, { method: "DELETE" });
+    await fetch(`${backendURI}/medications/${id}`, { method: "DELETE" });
   };
 
   const updateMedsList = (medsList, res, id) => {
@@ -81,7 +89,7 @@ export const RxProvider = ({ children }) => {
 
   const updateMed = async (id, updKey) => {
     console.log("Inside updateMed, updKey:", JSON.stringify(updKey));
-    const response = await fetch(`/medications/${id}`, {
+    const response = await fetch(`${backendURI}/medications/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updKey),

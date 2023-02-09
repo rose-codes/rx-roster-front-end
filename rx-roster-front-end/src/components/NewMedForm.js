@@ -2,6 +2,27 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
 import RxContext from "../context/RxContext";
+import FormInput from "./shared/FormInput";
+
+const defaultValues = {
+  brandName: "",
+  // genericName: "",
+  strength: 0,
+  strengthUnits: "",
+  quantity: 0,
+  medForm: "",
+  quantityUnits: "",
+  instructions: "",
+  prescribedFor: "",
+  prescriber: "",
+  pharmacyFilled: "",
+  manufacturer: "",
+  startDate: "",
+  datePrescribed: "",
+  appearance: "",
+  currentlyTaking: "",
+  sideEffects: "",
+};
 
 const NewMedForm = () => {
   const { addMed } = useContext(RxContext);
@@ -11,60 +32,52 @@ const NewMedForm = () => {
     formState: { errors, isValid },
     reset,
   } = useForm({
-    defaultValues: {
-      brandName: "",
-      genericName: "",
-      strength: 0,
-      strengthUnits: "",
-      quantity: 0,
-      medForm: "",
-      quantityUnits: "",
-      instructions: "",
-      prescribedFor: "",
-      prescriber: "",
-      pharmacyFilled: "",
-      manufacturer: "",
-      startDate: "",
-      datePrescribed: "",
-      appearance: "",
-      currentlyTaking: "",
-      sideEffects: "",
-    },
+    defaultValues: defaultValues,
     mode: "onBlur",
   });
 
   const onSubmit = (formValues) => {
+    console.log("submission obj", formValues);
     addMed(formValues);
     // reset();
   };
 
-  // @todo: separate each field + Form.Label into separate divs
   return (
     <div className="container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="name hstack gap-3">
+          {/* <FormInput
+            inputType="text"
+            label="Generic Name*"
+            formName="genericName"
+            placeholder="Generic Name"
+            validation={{
+              required: {
+                value: true,
+                message: "Generic Name is Required",
+              },
+              minLength: {
+                value: 3,
+                message: "Medication names must be longer than 3 characters",
+              },
+            }}
+            // defaultVal={defaultValues.genericName}
+          /> */}
           <Form.Group className="mb-3" controlId="genericName">
             <Form.Label>Generic Name*:</Form.Label>
             <Form.Control
               className={`text-field ${errors.genericName && "invalid"}`}
               type="text"
-              {...register(
-                "genericName",
-                {
-                  required: {
-                    value: true,
-                    message: "Generic Name is Required",
-                  },
-                  minLength: { value: 3, message: "test" },
+              {...register("genericName", {
+                required: {
+                  value: true,
+                  message: "Generic Name is Required",
                 },
-                {
-                  minLength: {
-                    value: 3,
-                    message:
-                      "Medication names must be longer than 3 characters",
-                  },
-                }
-              )}
+                minLength: {
+                  value: 3,
+                  message: "Medication names must be longer than 3 characters",
+                },
+              })}
               placeholder="Generic Name"
             ></Form.Control>
             <small className="error-message">
@@ -77,20 +90,13 @@ const NewMedForm = () => {
             <Form.Control
               className={`text-field ${errors.brandName && "invalid"}`}
               type="text"
-              {...register(
-                "brandName",
-                {
-                  required: { value: true, message: "Brand Name is Required" },
-                  minLength: { value: 3, message: "test" },
+              {...register("brandName", {
+                required: { value: true, message: "Brand Name is Required" },
+                minLength: {
+                  value: 3,
+                  message: "Medication names must be longer than 3 characters",
                 },
-                {
-                  minLength: {
-                    value: 3,
-                    message:
-                      "Medication names must be longer than 3 characters",
-                  },
-                }
-              )}
+              })}
               placeholder="Brand Name"
             ></Form.Control>
             <small className="error-message">
@@ -311,6 +317,18 @@ const NewMedForm = () => {
               placeholder="Date Prescribed"
             ></Form.Control>
           </Form.Group>
+          {/* <FormInput
+            inputType="text"
+            label="Date Started:"
+            formName="startDate"
+            placeholder="Date Medication Started"
+            validation={{
+              valueAsDate: {
+                value: true,
+                message: "Please provide a valid date",
+              },
+            }}
+          /> */}
           <Form.Group className="mb-3" controlId="startDate">
             <Form.Label>Date Started:</Form.Label>
             <Form.Control

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import CompleteMedHistory from "../components/CompleteMedHistory";
 import { Container, Row, Col } from "react-bootstrap";
 import NewMedForm from "../components/NewMedForm";
@@ -19,17 +18,6 @@ const AllMedsPage = () => {
       </Row>
       <Footer />
     </Container>
-
-    // <div>
-    //   <div className="all-meds-page">
-    //     <h1>All Medications</h1>
-    //     <CompleteMedHistory />
-    //     <Footer />
-    //     <div className="new-med-form">
-    //       <NewMedForm />
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
