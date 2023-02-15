@@ -45,10 +45,9 @@ export const RxProvider = ({ children }) => {
     medications: null,
   });
 
-  // const [currentMeds, setCurrentMeds] = useState([]);
   const { user } = useAuthContext();
-  // const backendURI = process.env.REACT_APP_BACKEND_URL;
-  const backendURI = "http://localhost:5000";
+  const backendURI = process.env.REACT_APP_BACKEND_URL;
+  // const backendURI = "http://localhost:5000";
 
   // useEffect(() => {
   //   if (user) {
@@ -69,7 +68,6 @@ export const RxProvider = ({ children }) => {
       dispatch({ type: "SET_MEDICATIONS", payload: data });
     }
 
-    // setMedications(data);
     // axios
     //   .get(`${process.env.REACT_APP_BACKEND_URL}/api/medications`)
     //   .then((res) => {
@@ -114,13 +112,6 @@ export const RxProvider = ({ children }) => {
     if (response.ok) {
       dispatch({ type: "CREATE_MEDICATION", payload: data });
     }
-    // setMedications([...medications, data]);
-    // axios
-    //   .post("/api/medications", newMed)
-    //   .then((res) => {
-    //     setMedications([...medications, res.data]);
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   const deleteMed = async (id) => {
@@ -145,8 +136,6 @@ export const RxProvider = ({ children }) => {
     });
     const data = await response.json();
     console.log("inside UpdateMed fxn data", data);
-    // setMedications(updateMedsList(medications, data, id));
-    // getCurrentMedications();
   };
 
   return (

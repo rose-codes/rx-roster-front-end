@@ -30,13 +30,33 @@ const NavBar = () => {
               </Nav.Link>
             </Nav.Item>
           </Nav>
-          <Nav className="nav-link">
-            <Nav.Item eventkey={3} href="/">
-              <Nav.Link as={Link} to="/all-medications">
-                All Medications
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
+          {user && (
+            <Nav className="nav-link">
+              <Nav.Item eventkey={3} href="/">
+                <Nav.Link as={Link} to="/all-medications">
+                  All Medications
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          )}
+          {!user && (
+            <Nav className="nav-link">
+              <Nav.Item eventkey={3} href="/">
+                <Nav.Link as={Link} to="/login">
+                  Sign In
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          )}
+          {!user && (
+            <Nav className="nav-link">
+              <Nav.Item eventkey={4} href="/">
+                <Nav.Link as={Link} to="/signup">
+                  Sign Up
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          )}
           {user && <button onClick={handleClick}>Logout</button>}
         </Container>
       </Navbar>
