@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import { Nav, Navbar, Container } from "react-bootstrap";
+import { useLogout } from "../../hooks/useLogout";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const NavBar = () => {
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
+
+  const handleClick = () => {
+    logout();
+  };
+
   return (
     <div className="nav-bar">
       <Navbar bg="primary" variant="dark" expand="lg">
@@ -28,6 +37,7 @@ const NavBar = () => {
               </Nav.Link>
             </Nav.Item>
           </Nav>
+          {user && <button onClick={handleClick}>Logout</button>}
         </Container>
       </Navbar>
     </div>

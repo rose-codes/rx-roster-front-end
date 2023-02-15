@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Button, Form, Container } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
+import { useLogin } from "../hooks/useLogin";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const { login, error, isLoading } = useLogin();
   const {
     register,
     handleSubmit,
@@ -16,9 +18,9 @@ const LoginPage = () => {
     },
     mode: "onBlur",
   });
-  const onSubmit = (formData) => {
+  const onSubmit = async (formData) => {
     console.log(formData);
-    navigate("/dashboard");
+    await login(formData.email, formData.password);
   };
 
   return (

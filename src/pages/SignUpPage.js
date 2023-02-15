@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { Button, Form, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useSignUp } from "../hooks/useSignup";
 
 const SignUpPage = () => {
   const {
@@ -20,6 +21,8 @@ const SignUpPage = () => {
     mode: "onBlur",
   });
 
+  const { signup, error, isLoading } = useSignUp();
+
   const onPasswordChange = () => {
     <small className="passwordRequirements">
       <div>Password must include:</div>
@@ -33,8 +36,14 @@ const SignUpPage = () => {
     </small>;
   };
 
-  const onSubmit = (formValues) => {
+  const onSubmit = async (formValues) => {
     console.log("submission obj", formValues);
+    await signup(
+      formValues.firstName,
+      formValues.surname,
+      formValues.email,
+      formValues.password
+    );
     // reset();
   };
 
@@ -69,10 +78,10 @@ const SignUpPage = () => {
             className="mb-3"
             type="text"
             {...register("dateOfBirth", {
-              required: {
-                value: true,
-                message: "Please enter your Date of Birth.",
-              },
+              // required: {
+              //   value: true,
+              //   message: "Please enter your Date of Birth.",
+              // },
               valueAsDate: {
                 value: true,
                 message: "Please enter a valid date.",
@@ -109,7 +118,7 @@ const SignUpPage = () => {
             {...register("password")}
             placeholder="Password"
           ></Form.Control>
-          <Button type="submit">Login</Button>
+          <Button type="submit">Sign Up</Button>
         </form>
         <div>Already have an account? Sign in</div>
         <Link to="/login" className="logInLink">

@@ -1,49 +1,77 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
 import axios from "axios";
 
-const RxContext = createContext();
+export const RxContext = createContext();
+
+export const medicationsReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_MEDICATIONS":
+      return {
+        medications: action.payload,
+      };
+    case "CREATE_MEDICATION":
+      return {
+        medications: [...state.medications, action.payload],
+      };
+    default:
+      return state;
+  }
+};
 
 export const RxProvider = ({ children }) => {
-  const [medications, setMedications] = useState([
-    {
-      _id: "63d35e4981b2bae4f688e492",
-      brandName: "Tylenol",
-      genericName: "Acetaminophen",
-      form: "tablet",
-      strength: 500,
-      strengthUnits: "mg",
-      prescribedFor: "pain",
-      instructions:
-        "take 1-2 tablets by mouth every 4-6 hours, do not exceed 12 tablets per day",
-      prescriber: "Dr. Grey, M",
-      pharmacyFilled: "CVS",
-      manufacturer: "Amneal",
-      appearance: "white rectangle with rounded corners",
-      currentlyTaking: true,
-      datePrescribed: "2023-01-26T00:00:00.000Z",
-      __v: 0,
-    },
-  ]);
+  // const [medications, setMedications] = useState([
+  //   {
+  //     _id: "63d35e4981b2bae4f688e492",
+  //     brandName: "Tylenol",
+  //     genericName: "Acetaminophen",
+  //     form: "tablet",
+  //     strength: 500,
+  //     strengthUnits: "mg",
+  //     prescribedFor: "pain",
+  //     instructions:
+  //       "take 1-2 tablets by mouth every 4-6 hours, do not exceed 12 tablets per day",
+  //     prescriber: "Dr. Grey, M",
+  //     pharmacyFilled: "CVS",
+  //     manufacturer: "Amneal",
+  //     appearance: "white rectangle with rounded corners",
+  //     currentlyTaking: true,
+  //     datePrescribed: "2023-01-26T00:00:00.000Z",
+  //     __v: 0,
+  //   },
+  // ]);
 
-  const [currentMeds, setCurrentMeds] = useState([]);
-  const backendURI = process.env.REACT_APP_BACKEND_URL;
+  const [state, dispatch] = useReducer(medicationsReducer, {
+    medications: null,
+  });
 
-  useEffect(() => {
-    getMedications();
-    getCurrentMedications();
-  }, []);
+  // const [currentMeds, setCurrentMeds] = useState([]);
+  const { user } = useAuthContext();
+  // const backendURI = process.env.REACT_APP_BACKEND_URL;
+  const backendURI = "http://localhost:5000";
 
-  useEffect(() => {
-    getCurrentMedications();
-  }, [medications]);
+  // useEffect(() => {
+  //   if (user) {
+  //     getMedications();
+  //     // getCurrentMedications();
+  //   }
+  // }, [dispatch, user]);
 
   // @todo: refactor routes with Axios
   const getMedications = async () => {
-    const response = await fetch(`${backendURI}/medications`);
+    const response = await fetch(`${backendURI}/api/medications`, {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
     const data = await response.json();
-    setMedications(data);
+    if (response.ok) {
+      dispatch({ type: "SET_MEDICATIONS", payload: data });
+    }
+
+    // setMedications(data);
     // axios
-    //   .get(`${process.env.REACT_APP_BACKEND_URL}/medications`)
+    //   .get(`${process.env.REACT_APP_BACKEND_URL}/api/medications`)
     //   .then((res) => {
     //     const medsList = res.data.map((med) => {
     //       return med;
@@ -55,18 +83,26 @@ export const RxProvider = ({ children }) => {
 
   const getCurrentMedications = async () => {
     const response = await fetch(
-      `${backendURI}/medications?` +
-        new URLSearchParams({ currentlyTaking: true })
+      `${backendURI}/api/medications?` +
+        new URLSearchParams({ currentlyTaking: true }),
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
     );
     const data = await response.json();
-    setCurrentMeds(data);
+    if (response.ok) {
+      dispatch({ type: "SET_MEDICATIONS", payload: data });
+    }
   };
 
   const addMed = async (newMed) => {
-    const response = await fetch(`${backendURI}/medications`, {
+    const response = await fetch(`${backendURI}/api/medications`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
       body: JSON.stringify(newMed),
     });
@@ -75,9 +111,12 @@ export const RxProvider = ({ children }) => {
       return console.log(err);
     }
     const data = await response.json();
-    setMedications([...medications, data]);
+    if (response.ok) {
+      dispatch({ type: "CREATE_MEDICATION", payload: data });
+    }
+    // setMedications([...medications, data]);
     // axios
-    //   .post("/medications", newMed)
+    //   .post("/api/medications", newMed)
     //   .then((res) => {
     //     setMedications([...medications, res.data]);
     //   })
@@ -85,36 +124,42 @@ export const RxProvider = ({ children }) => {
   };
 
   const deleteMed = async (id) => {
-    await fetch(`${backendURI}/medications/${id}`, { method: "DELETE" });
-  };
-
-  const updateMedsList = (medsList, res, id) => {
-    return medications.map((med) => {
-      return med._id === id ? { ...med, ...res } : med;
+    await fetch(`${backendURI}/api/medications/${id}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${user.token}` },
     });
   };
 
+  // const updateMedsList = (medsList, res, id) => {
+  //   return medications.map((med) => {
+  //     return med._id === id ? { ...med, ...res } : med;
+  //   });
+  // };
+
   const updateMed = async (id, updKey) => {
     console.log("Inside updateMed, updKey:", JSON.stringify(updKey));
-    const response = await fetch(`${backendURI}/medications/${id}`, {
+    const response = await fetch(`${backendURI}/api/medications/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updKey),
     });
     const data = await response.json();
     console.log("inside UpdateMed fxn data", data);
-    setMedications(updateMedsList(medications, data, id));
-    getCurrentMedications();
+    // setMedications(updateMedsList(medications, data, id));
+    // getCurrentMedications();
   };
 
   return (
     <RxContext.Provider
       value={{
-        medications,
-        currentMeds,
+        // medications,
+        // currentMeds,
+        getMedications,
         addMed,
         getCurrentMedications,
         updateMed,
+        ...state,
+        dispatch,
       }}
     >
       {children}

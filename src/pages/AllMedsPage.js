@@ -8,7 +8,7 @@ const AllMedsPage = () => {
       <Row></Row>
       <Row>
         <Col>
-          <h3>Current Medications</h3>
+          <h3>All Medications</h3>
           <CompleteMedHistory />
         </Col>
         <Col>
