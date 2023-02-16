@@ -131,7 +131,9 @@ const SignUpPage = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit" disabled={!isValid}>
+            Sign Up
+          </Button>
         </form>
         <div>
           Already have an account? Sign in
