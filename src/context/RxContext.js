@@ -55,15 +55,7 @@ export const RxProvider = ({ children }) => {
   });
 
   const { user } = useAuthContext();
-  // const backendURI = process.env.REACT_APP_BACKEND_URL;
-  const backendURI = "http://localhost:5000";
-
-  // useEffect(() => {
-  //   if (user) {
-  //     getMedications();
-  //     // getCurrentMedications();
-  //   }
-  // }, [dispatch, user]);
+  const backendURI = process.env.REACT_APP_BACKEND_URL;
 
   // @todo: refactor routes with Axios
   const getMedications = async () => {
@@ -130,12 +122,6 @@ export const RxProvider = ({ children }) => {
     });
   };
 
-  // const updateMedsList = (medsList, res, id) => {
-  //   return medications.map((med) => {
-  //     return med._id === id ? { ...med, ...res } : med;
-  //   });
-  // };
-
   const updateMed = async (id, updKey) => {
     console.log("Inside updateMed, updKey:", JSON.stringify(updKey));
     const response = await fetch(`${backendURI}/api/medications/${id}`, {
@@ -156,8 +142,6 @@ export const RxProvider = ({ children }) => {
   return (
     <RxContext.Provider
       value={{
-        // medications,
-        // currentMeds,
         getMedications,
         addMed,
         getCurrentMedications,

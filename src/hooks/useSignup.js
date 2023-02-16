@@ -9,7 +9,7 @@ export const useSignUp = () => {
   const signup = async (firstName, surname, email, password) => {
     setIsLoading(true);
     setError(null);
-    const backendURI = "http://localhost:5000";
+    const backendURI = process.env.REACT_APP_BACKEND_URL;
 
     const response = await fetch(`${backendURI}/api/users/signup`, {
       method: "POST",
