@@ -18,11 +18,11 @@ const AllMedsPage = () => {
       <Row></Row>
       <Row>
         <Col>
-          <h3>All Medications</h3>
+          <h3 className="py-3">All Medications</h3>
           <CompleteMedHistory medications={medications} />
         </Col>
         <Col>
-          <h3>Add a New Medication</h3>
+          <h3 className="py-3">Add a New Medication</h3>
           <NewMedForm />
         </Col>
       </Row>

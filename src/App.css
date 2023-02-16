@@ -53,3 +53,7 @@ ol {
   list-style: none;
 }
 
+.meds-list {
+  border: 1px solid black;
+  border-radius: 5%
+}

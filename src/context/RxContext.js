@@ -14,6 +14,15 @@ export const medicationsReducer = (state, action) => {
       return {
         medications: [...state.medications, action.payload],
       };
+    case "UPDATE_MEDICATION":
+      const updateMedsList = (medsList, res) => {
+        return medsList.map((med) => {
+          return med._id === res._id ? { ...med, ...res } : med;
+        });
+      };
+      return {
+        medications: updateMedsList(state.medications, action.payload),
+      };
     default:
       return state;
   }
@@ -46,8 +55,8 @@ export const RxProvider = ({ children }) => {
   });
 
   const { user } = useAuthContext();
-  const backendURI = process.env.REACT_APP_BACKEND_URL;
-  // const backendURI = "http://localhost:5000";
+  // const backendURI = process.env.REACT_APP_BACKEND_URL;
+  const backendURI = "http://localhost:5000";
 
   // useEffect(() => {
   //   if (user) {
@@ -131,11 +140,17 @@ export const RxProvider = ({ children }) => {
     console.log("Inside updateMed, updKey:", JSON.stringify(updKey));
     const response = await fetch(`${backendURI}/api/medications/${id}`, {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
       body: JSON.stringify(updKey),
     });
     const data = await response.json();
-    console.log("inside UpdateMed fxn data", data);
+    console.log(data);
+    if (response.ok) {
+      dispatch({ type: "UPDATE_MEDICATION", payload: data });
+    }
   };
 
   return (

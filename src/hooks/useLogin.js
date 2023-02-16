@@ -5,8 +5,8 @@ export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
-  // const backendURI = "http://localhost:5000";
-  const backendURI = process.env.REACT_APP_BACKEND_URL;
+  const backendURI = "http://localhost:5000";
+  // const backendURI = process.env.REACT_APP_BACKEND_URL;
 
   const login = async (email, password) => {
     setIsLoading(true);
