@@ -50,80 +50,95 @@ const SignUpPage = () => {
   return (
     <>
       <Container>
-        <h1>Welcome Back!</h1>
+        <h1 className="py-3 my-3">Welcome!</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Form.Control
-            className="mb-3"
-            type="text"
-            {...register("firstName", {
-              required: {
-                value: true,
-                message: "Please enter your first name.",
-              },
-            })}
-            placeholder="First Name"
-          ></Form.Control>
-          <Form.Control
-            className="mb-3"
-            type="text"
-            {...register("surname", {
-              required: {
-                value: true,
-                message: "Please enter your surname.",
-              },
-            })}
-            placeholder="Surname"
-          ></Form.Control>
-          <Form.Control
-            className="mb-3"
-            type="text"
-            {...register("dateOfBirth", {
-              // required: {
-              //   value: true,
-              //   message: "Please enter your Date of Birth.",
-              // },
-              valueAsDate: {
-                value: true,
-                message: "Please enter a valid date.",
-              },
-            })}
-            // @todo: verify date format
-            placeholder="MM/DD/YYYY"
-          ></Form.Control>
-          <Form.Control
-            className="mb-3"
-            type="text"
-            {...register("phoneNumber")}
-            placeholder="XXX-XXX-XXXX"
-          ></Form.Control>
+          <Form.Group className="mb-3">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("firstName", {
+                required: {
+                  value: true,
+                  message: "Please enter your first name.",
+                },
+              })}
+              placeholder="First Name"
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("surname", {
+                required: {
+                  value: true,
+                  message: "Please enter your surname.",
+                },
+              })}
+              placeholder="Surname"
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Date of Birthday</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("dateOfBirth", {
+                // required: {
+                //   value: true,
+                //   message: "Please enter your Date of Birth.",
+                // },
+                valueAsDate: {
+                  value: true,
+                  message: "Please enter a valid date.",
+                },
+              })}
+              // @todo: verify date format
+              placeholder="MM/DD/YYYY"
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("phoneNumber")}
+              placeholder="XXX-XXX-XXXX"
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              {...register("email", {
+                required: {
+                  value: true,
+                  message: "Please enter an email.",
+                },
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Please enter a valid email",
+                },
+              })}
+              placeholder="Email"
+            ></Form.Control>
+          </Form.Group>
           {/* @todo: Add Street Address fields */}
-          <Form.Control
-            className="mb-3"
-            type="email"
-            {...register("email", {
-              required: {
-                value: true,
-                message: "Please enter an email.",
-              },
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: "Please enter a valid email",
-              },
-            })}
-            placeholder="Email"
-          ></Form.Control>
-          <Form.Control
-            className="mb-3"
-            type="password"
-            {...register("password")}
-            placeholder="Password"
-          ></Form.Control>
+          <Form.Group className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              {...register("password")}
+              placeholder="Password"
+            ></Form.Control>
+          </Form.Group>
+
           <Button type="submit">Sign Up</Button>
         </form>
-        <div>Already have an account? Sign in</div>
-        <Link to="/login" className="logInLink">
-          here
-        </Link>
+        <div>
+          Already have an account? Sign in
+          <Link to="/login" className="logInLink">
+            here
+          </Link>
+        </div>
       </Container>
     </>
   );
