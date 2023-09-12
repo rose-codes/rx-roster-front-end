@@ -1,12 +1,9 @@
 import RxContext from "../context/RxContext";
 import { useRxContext } from "../hooks/useRxContext";
-import { useAuthContext } from "../hooks/useAuthContext";
 import CardAccordion from "./shared/CardAccordion";
-import { useContext } from "react";
 
 const CurrentMedsList = () => {
-  const { medications, dispatch } = useRxContext();
-  const { user } = useAuthContext();
+  const { medications } = useRxContext();
   return (
     <ol className="current-meds-list">
       {medications.map((med) => (
