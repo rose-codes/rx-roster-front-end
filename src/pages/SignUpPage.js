@@ -1,7 +1,6 @@
-// import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Form, Container } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSignUp } from "../hooks/useSignup";
 
 const SignUpPage = () => {

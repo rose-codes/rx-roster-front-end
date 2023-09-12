@@ -1,6 +1,5 @@
-import { createContext, useState, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
-import axios from "axios";
 
 export const RxContext = createContext();
 
@@ -29,27 +28,6 @@ export const medicationsReducer = (state, action) => {
 };
 
 export const RxProvider = ({ children }) => {
-  // const [medications, setMedications] = useState([
-  //   {
-  //     _id: "63d35e4981b2bae4f688e492",
-  //     brandName: "Tylenol",
-  //     genericName: "Acetaminophen",
-  //     form: "tablet",
-  //     strength: 500,
-  //     strengthUnits: "mg",
-  //     prescribedFor: "pain",
-  //     instructions:
-  //       "take 1-2 tablets by mouth every 4-6 hours, do not exceed 12 tablets per day",
-  //     prescriber: "Dr. Grey, M",
-  //     pharmacyFilled: "CVS",
-  //     manufacturer: "Amneal",
-  //     appearance: "white rectangle with rounded corners",
-  //     currentlyTaking: true,
-  //     datePrescribed: "2023-01-26T00:00:00.000Z",
-  //     __v: 0,
-  //   },
-  // ]);
-
   const [state, dispatch] = useReducer(medicationsReducer, {
     medications: null,
   });
@@ -68,16 +46,6 @@ export const RxProvider = ({ children }) => {
     if (response.ok) {
       dispatch({ type: "SET_MEDICATIONS", payload: data });
     }
-
-    // axios
-    //   .get(`${process.env.REACT_APP_BACKEND_URL}/api/medications`)
-    //   .then((res) => {
-    //     const medsList = res.data.map((med) => {
-    //       return med;
-    //     });
-    //     setMedications(medsList);
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   const getCurrentMedications = async () => {

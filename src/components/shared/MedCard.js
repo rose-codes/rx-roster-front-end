@@ -2,7 +2,7 @@ import NameDisplay from "./NameDisplay";
 import { useForm } from "react-hook-form";
 import { useRxContext } from "../../hooks/useRxContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { Card, Button, Form } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 
 const MedCard = ({ med }) => {
   const { register } = useForm({

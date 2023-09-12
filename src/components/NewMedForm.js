@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
 import RxContext from "../context/RxContext";
-import FormInput from "./shared/FormInput";
 
 const defaultValues = {
   brandName: "",
