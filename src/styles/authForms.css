@@ -15,7 +15,7 @@ h1 {
 }
 
 .form-container {
-    @apply p-7 bg-sky-100 border-solid border-sky-300 border-2 rounded-sm mb-5;
+    @apply p-7 bg-sky-100 border-solid border-sky-200 border-2 rounded-sm mb-5;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -40,7 +40,7 @@ button.submit-button {
     @apply border-2 w-full h-12 bg-black text-white;
 }
 
-button.submit-button:hover {
+button.submit-button:enabled:hover {
     @apply bg-slate-800;
 }
 
@@ -48,19 +48,24 @@ button.submit-button:hover {
     @apply bg-slate-200 font-extrabold text-slate-500;
 }
 
-.login-redirect {
+.auth-redirect {
     @apply border-2 border-black p-3 flex justify-center;
 }
 
-.login-redirect-content {
+.auth-redirect-content {
     @apply justify-center;
 }
 
-a.logInLink {
+a.auth-link {
     font-family: 'Tenor Sans', sans-serif;
     @apply text-black no-underline;
 }
 
-a.logInLink:hover {
+a.auth-link:hover {
     @apply text-slate-700;
+}
+
+.extra-text {
+    @apply mb-3 flex justify-center;
+    font-family: 'Montserrat', sans-serif;
 }
