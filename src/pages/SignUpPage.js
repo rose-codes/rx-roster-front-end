@@ -49,7 +49,7 @@ const SignUpPage = () => {
   return (
     <>
       <Container>
-        <h1 className="py-3 my-3">Welcome!</h1>
+        <h1 className="py-3 my-3 text-red-800">Sign Up!</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3">
             <Form.Label>First Name</Form.Label>

@@ -15,7 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap/dist/react-bootstrap";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import SignUpPage from "./pages/SignUpPage";
+import SignUpPage from "./pages/v2/SignUpPage";
 import { AuthContextProvider } from "./context/AuthContext";
 import { useAuthContext } from "./hooks/useAuthContext";
 

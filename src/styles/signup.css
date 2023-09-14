@@ -1,0 +1,66 @@
+h1 {
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+.page-container {
+    @apply max-w-screen-xl flex basis-0 flex-col grow shrink flex-nowrap px-3.5 pb-3.5 mx-auto;
+}
+
+.content-container {
+    @apply flex basis-auto flex-col grow shrink flex-wrap content-center;
+}
+
+.form-content-container {
+    @apply justify-center max-w-lg;
+}
+
+.form-container {
+    @apply p-7 bg-sky-100 border-solid border-sky-300 border-2 rounded-sm mb-5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-group {
+    @apply mb-5 flex flex-col;
+}
+
+label {
+    @apply mb-1;
+}
+
+.input-field {
+    @apply border-b-4 border-b-sky-200 rounded-t-sm shadow-none;
+    min-height: 40px;
+}
+
+.input-field:focus-visible {
+    @apply outline-none;
+}
+
+button.submit-button {
+    @apply border-2 w-full h-12 bg-black text-white;
+}
+
+button.submit-button:hover {
+    @apply bg-slate-800;
+}
+
+.submit-button:disabled {
+    @apply bg-slate-200 font-extrabold text-slate-500;
+}
+
+.login-redirect {
+    @apply border-2 border-black p-3 flex justify-center;
+}
+
+.login-redirect-content {
+    @apply justify-center;
+}
+
+a.logInLink {
+    font-family: 'Tenor Sans', sans-serif;
+    @apply text-black no-underline;
+}
+
+a.logInLink:hover {
+    @apply text-slate-700;
+}
