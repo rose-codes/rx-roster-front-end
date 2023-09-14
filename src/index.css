@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import "./styles/authForms.css";
+@import "./styles/navBar.css";
 
 body {
   margin: 0;

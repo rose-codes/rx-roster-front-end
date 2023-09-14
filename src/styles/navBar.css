@@ -1,0 +1,33 @@
+.nav-bar {
+    @apply w-full bg-sky-200 flex justify-center mb-16;
+}
+
+.nav-content {
+    @apply flex max-w-screen-xl px-8 py-6 justify-between min-w-full;
+}
+
+.links {
+    @apply flex justify-between;
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+.navbar-link {
+    @apply px-2;
+}
+
+.navbar-link > a:hover {
+    @apply text-black
+}
+
+.brand-link {
+    font-family: 'Tenor Sans', 'sans-serif';
+    @apply text-black no-underline text-xl font-extrabold;
+}
+
+.navbar-link-content {
+    @apply text-black no-underline px-1;
+}
+
+button.navbar-link {
+    @apply border-4;
+}

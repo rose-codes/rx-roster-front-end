@@ -1,66 +1,61 @@
-import { Link } from "react-router-dom";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 const NavBar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const location = useLocation();
 
   const handleClick = () => {
     logout();
   };
 
   return (
-    <div className="nav-bar">
-      <Navbar bg="primary" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand href="#home">RxRoster</Navbar.Brand>
-          <Nav className="nav-link">
-            <Nav.Item eventkey={1} href="/">
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-          <Nav className="nav-link">
-            <Nav.Item eventkey={2} href="/">
-              <Nav.Link as={Link} to="/about">
-                About
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
+    <nav className="nav-bar">
+      <section className="nav-content">
+        <div className="brand">
+          <div className="navbar-link flex-start">
+            <Link to="/" className="brand-link">
+              RxRoster
+            </Link>
+          </div>
+        </div>
+        <div className="links">
+          <div className="navbar-link">
+            <Link to="/" className="navbar-link-content">
+              About
+            </Link>
+          </div>
           {user && (
-            <Nav className="nav-link">
-              <Nav.Item eventkey={3} href="/">
-                <Nav.Link as={Link} to="/all-medications">
-                  All Medications
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
+            <div className="navbar-link">
+              <Link to="/all-medications" className="navbar-link-content">
+                All Medications
+              </Link>
+            </div>
           )}
-          {!user && (
-            <Nav className="nav-link">
-              <Nav.Item eventkey={3} href="/">
-                <Nav.Link as={Link} to="/login">
-                  Sign In
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
+          {!user && location.pathname === "/signup" && (
+            <div className="navbar-link">
+              <Link to="/login" className="navbar-link-content">
+                Log In
+              </Link>
+            </div>
           )}
-          {!user && (
-            <Nav className="nav-link">
-              <Nav.Item eventkey={4} href="/">
-                <Nav.Link as={Link} to="/signup">
-                  Sign Up
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
+          {!user && location.pathname === "/login" && (
+            <div className="navbar-link">
+              <Link to="/signup" className="navbar-link-content">
+                Get Started
+              </Link>
+            </div>
           )}
-          {user && <button onClick={handleClick}>Logout</button>}
-        </Container>
-      </Navbar>
-    </div>
+          {user && (
+            <button onClick={handleClick} className="mx-2">
+              <div className="-mt-1">Logout</div>
+            </button>
+          )}
+        </div>
+      </section>
+    </nav>
   );
 };
 
