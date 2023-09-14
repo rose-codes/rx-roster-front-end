@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import NavBar from "./components/shared/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap/dist/react-bootstrap";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/v2/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import SignUpPage from "./pages/v2/SignUpPage";
 import { AuthContextProvider } from "./context/AuthContext";
