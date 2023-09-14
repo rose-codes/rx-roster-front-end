@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { button, Form, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSignUp } from "../../hooks/useSignup";
 
@@ -174,9 +173,9 @@ const SignUpPage = () => {
               </form>
             </div>
 
-            <div className="login-redirect">
-              <div className="login-redirect-content">
-                <Link to="/login" className="logInLink">
+            <div className="auth-redirect">
+              <div className="auth-redirect-content">
+                <Link to="/login" className="auth-link">
                   Already have an account?
                 </Link>
               </div>

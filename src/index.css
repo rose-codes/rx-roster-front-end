@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./styles/signup.css";
+@import "./styles/authForms.css";
 
 body {
   margin: 0;
