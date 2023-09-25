@@ -10,7 +10,7 @@ const MedCard = ({ med }) => {
       currentlyTaking: med.currentlyTaking,
     },
   });
-  const { state, dispatch, updateMed } = useRxContext();
+  const { updateMed } = useRxContext();
   const { user } = useAuthContext();
 
   const handleChecked = () => {

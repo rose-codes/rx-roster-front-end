@@ -1,6 +1,6 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPasswordPage = () => {
   const navigate = useNavigate();

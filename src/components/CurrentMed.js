@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import RxContext from "../context/RxContext";
 import { Button } from "react-bootstrap";
 import MedCard from "./shared/MedCard";
+import { useRxContext } from "../hooks/useRxContext";
 
 const CurrentMed = ({ med }) => {
-  const { updateMed } = useContext(RxContext);
+  const { updateMed } = useRxContext();
 
   const handleButtonClick = () => {
     const changedStatus = { currentlyTaking: false };

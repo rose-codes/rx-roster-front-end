@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
-import RxContext from "../context/RxContext";
+import { useRxContext } from "../hooks/useRxContext";
 
 const defaultValues = {
   brandName: "",
@@ -24,7 +23,7 @@ const defaultValues = {
 };
 
 const NewMedForm = () => {
-  const { addMed } = useContext(RxContext);
+  const { addMed } = useRxContext;
   const {
     register,
     handleSubmit,

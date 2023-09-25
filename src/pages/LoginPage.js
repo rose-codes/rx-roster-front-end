@@ -4,8 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const { login, error, isLoading } = useLogin();
+  const { login } = useLogin();
   const {
     register,
     handleSubmit,
