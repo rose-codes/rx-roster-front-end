@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import "./styles/authForms.css";
 @import "./styles/navBar.css";
+@import "./styles/dashboard.css";
 
 body {
   margin: 0;
@@ -14,7 +15,6 @@ body {
 }
 
 code {
-  font-family: 'Tenor Sans', sans-serif;
   font-family: 'Tenor Sans', sans-serif;
 }
 

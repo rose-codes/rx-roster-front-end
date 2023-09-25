@@ -8,7 +8,7 @@ import {
 import AllMedsPage from "./pages/AllMedsPage";
 import AboutPage from "./pages/AboutPage";
 import { RxProvider } from "./context/RxContext";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/v2/Dashboard";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/shared/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,7 +16,6 @@ import "react-bootstrap/dist/react-bootstrap";
 import LoginPage from "./pages/v2/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import SignUpPage from "./pages/v2/SignUpPage";
-import { AuthContextProvider } from "./context/AuthContext";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
