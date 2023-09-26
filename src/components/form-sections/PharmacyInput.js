@@ -1,21 +1,27 @@
 export const PharmacyInput = ({ errors, register }) => {
   return (
-    <div className="grid">
-      <div className="input-field row-start-1" controlId="datePrescribed">
-        <label>Date Prescribed:</label>
-        <input
-          className={`text-field ${errors.datePrescribed && "invalid"}`}
-          type="text"
-          {...register("datePrescribed", {
-            valueAsDate: {
-              value: true,
-              message: "Please provide a valid date",
-            },
-          })}
-          placeholder="Date Prescribed"
-        ></input>
-      </div>
-      {/* <FormInput
+    <section className="grid-row-start-3">
+      <div className="grid grid-rows-4 grid-cols-2">
+        <div className="row-start-1 w-6/12">
+          <div className="input-group">
+            <label>Date Prescribed:</label>
+            <input
+              className={`${
+                errors.datePrescribed && "invalid"
+              } form-text-input`}
+              type="text"
+              {...register("datePrescribed", {
+                valueAsDate: {
+                  value: true,
+                  message: "Please provide a valid date",
+                },
+              })}
+              placeholder="Date Prescribed"
+            ></input>
+          </div>
+        </div>
+        <div className="row-start-1 col-start-2 w-6/12">
+          {/* <FormInput
             inputType="text"
             label="Date Started:"
             formName="startDate"
@@ -27,60 +33,67 @@ export const PharmacyInput = ({ errors, register }) => {
               },
             }}
           /> */}
-      <div
-        className="input-field row-start-1 col-start-2"
-        controlId="startDate"
-      >
-        <label>Date Started:</label>
-        <input
-          className={`text-field ${errors.startDate && "invalid"}`}
-          type="text"
-          {...register("startDate", {
-            valueAsDate: {
-              value: true,
-              message: "Please provide a valid date",
-            },
-          })}
-          placeholder="Date Medication Started"
-        ></input>
+          <div className="input-group">
+            <label>Date Started:</label>
+            <input
+              className={`${errors.startDate && "invalid"} form-text-input`}
+              type="text"
+              {...register("startDate", {
+                valueAsDate: {
+                  value: true,
+                  message: "Please provide a valid date",
+                },
+              })}
+              placeholder="Date Medication Started"
+            ></input>
+          </div>
+        </div>
+        <div className="row-start-2 w-6/12">
+          <div className="input-group">
+            <label>Pharmacy:</label>
+            <input
+              type="text"
+              {...register("pharmacyFilled")}
+              placeholder="Pharmacy"
+              className="input-field form-text-input"
+            ></input>
+          </div>
+        </div>
+        <div className="row-start-2 col-start-2 w-6/12">
+          <div className="input-group">
+            <label>Manufacturer:</label>
+            <input
+              type="text"
+              {...register("manufacturer")}
+              placeholder="Manufacturer"
+              className="input-field form-text-input"
+            ></input>
+          </div>
+        </div>
+        <div className="row-start-3 w-6/12">
+          <div className="input-group">
+            <label>Side Effects:</label>
+            <input
+              type="text"
+              placeholder="Side Effects"
+              {...register("sideEffects")}
+              className="input-field form-text-input"
+            ></input>
+          </div>
+        </div>
+        <div className="row-start-4 w-6/12">
+          {/* @todo - if user provides manufacturer and other required fields, may be able to pre-populate with info from API */}
+          <div className="input-group">
+            <label>Appearance:</label>
+            <input
+              type="text"
+              {...register("appearance")}
+              placeholder="Appearance"
+              className="input-field form-text-input"
+            ></input>
+          </div>
+        </div>
       </div>
-      <div className="input-field row-start-2" controlId="pharmacy">
-        <label>Pharmacy:</label>
-        <input
-          type="text"
-          {...register("pharmacyFilled")}
-          placeholder="Pharmacy"
-        ></input>
-      </div>
-      <div
-        className="input-field row-start-2 col-start-2"
-        controlId="manufacturer"
-      >
-        <label>Manufacturer:</label>
-        <input
-          type="text"
-          {...register("manufacturer")}
-          placeholder="Manufacturer"
-        ></input>
-      </div>
-
-      <div className="input-field row-start-3" controlId="sideEffects">
-        <label>Side Effects:</label>
-        <input
-          type="text"
-          placeholder="Side Effects"
-          {...register("sideEffects")}
-        ></input>
-      </div>
-      {/* @todo - if user provides manufacturer and other required fields, may be able to pre-populate with info from API */}
-      <div className="input-field row-start-4" controlId="appearance">
-        <label>Appearance:</label>
-        <input
-          type="text"
-          {...register("appearance")}
-          placeholder="Appearance"
-        ></input>
-      </div>
-    </div>
+    </section>
   );
 };

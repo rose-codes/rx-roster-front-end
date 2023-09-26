@@ -42,26 +42,17 @@ const NewMedForm = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit(onSubmit)} className="grid grid-rows-10">
-        <MedicationInput
-          errors={errors}
-          register={register}
-          className="row-start-1"
-        />
+    <div className="form-container max-w-fit">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid auto-rows-max w-fit"
+      >
+        <MedicationInput errors={errors} register={register} />
 
-        <ProviderInput
-          errors={errors}
-          register={register}
-          className="row-start-2"
-        />
+        <ProviderInput errors={errors} register={register} />
         {/* @todo - create dropdown of user's commonly used pharmacies + allow them to add another */}
 
-        <PharmacyInput
-          errors={errors}
-          register={register}
-          className="row-start-3"
-        />
+        <PharmacyInput errors={errors} register={register} />
         <button
           type="submit"
           disabled={!isValid}

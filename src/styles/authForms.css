@@ -28,8 +28,10 @@ label {
 }
 
 .input-field {
-    @apply border-b-4 border-b-sky-200 rounded-t-sm shadow-none;
+    @apply border-b-4 border-b-sky-200 rounded-t-sm shadow-none ps-1.5 pb-1.5 pl-2.5 pr-9 pt-1.5;
     min-height: 40px;
+    @apply delay-0 duration-150 ease-in-out ease-in-out;
+    transition-property: border-color, box-shadow;
 }
 
 .input-field:focus-visible {
