@@ -4,5 +4,12 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  daisyui: {
+    themes: "cupcake",
+  },
+  plugins: [
+    require("daisyui"),
+    "@tailwindcss/forms",
+    "@tailwindcss/typography",
+  ],
 };

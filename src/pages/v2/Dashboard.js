@@ -4,6 +4,22 @@ import CurrentMedsList from "../../components/CurrentMedsList";
 import NewMedForm from "../../components/NewMedForm";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useRxContext } from "../../hooks/useRxContext";
+import { CalendarCard } from "../../components/CalendarCard";
+
+const createEventsList = (list) => {
+  let events = [];
+  // console.log("list:", list);
+  list.forEach((med) => {
+    let medObj = {
+      id: med.id,
+      title: med.genericName,
+      start: "2023-09-26'",
+      backgroundColor: "red",
+    };
+    events.push(medObj);
+  });
+  return events;
+};
 
 const Dashboard = () => {
   const { user } = useAuthContext();
@@ -21,7 +37,7 @@ const Dashboard = () => {
   }, [dispatch, user]);
 
   return (
-    <section className="page-container grid rows-3 cols-2 mb-2 gap-4">
+    <section className="dashboard-container mb-2 gap-4">
       <div className="header row-span-1 col-span-2 dashboard-heading">
         <h1 className="py-4 my-3">Welcome Back, {user.firstName}</h1>
       </div>
@@ -41,9 +57,11 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-card row-start-3 col-start-1">
-        <h5>Prescription Schedule</h5>
+        <div className="py-2 px-4">
+          <h5>Prescription Schedule</h5>
+          {medications && <CalendarCard medications={medications} />}
+        </div>
       </div>
-
       <div className="dashboard-card row-start-3 col-start-2">
         <h5>Pharmacies</h5>
       </div>

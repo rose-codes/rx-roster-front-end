@@ -1,6 +1,8 @@
 .dashboard-heading {
     font-family: 'Tenor Sans', sans-serif;
 }
+
+
 .dashboard-card {
     font-family: 'Montserrat', sans-serif;
     @apply shadow p-6;
@@ -130,4 +132,10 @@
     user-select: none;
     vertical-align: middle;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-rows: repeat(minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
 }
