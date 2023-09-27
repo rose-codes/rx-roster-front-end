@@ -15,7 +15,7 @@ const MedCard = ({ med }) => {
 
   const handleChecked = () => {
     if (user) {
-      updateMed(med._id, { currentlyTaking: !med.currentlyTaking });
+      updateMed(med.medId, { currentlyTaking: !med.currentlyTaking });
     }
   };
 

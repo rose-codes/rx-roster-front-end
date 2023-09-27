@@ -6,7 +6,7 @@ const CurrentMedsList = () => {
   return (
     <ol className="current-meds-list">
       {medications.map((med) => (
-        <CardAccordion key={med._id} med={med} />
+        <CardAccordion key={med.medId} med={med} />
       ))}
     </ol>
   );

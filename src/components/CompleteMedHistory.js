@@ -7,8 +7,8 @@ const CompleteMedHistory = ({ medications }) => {
   return (
     <ol className="history-meds-list">
       {medications.map((med) => (
-        <li key={med._id}>
-          <CardAccordion key={med._id} med={med} />
+        <li key={med.medId}>
+          <CardAccordion key={med.medId} med={med} />
         </li>
       ))}
     </ol>

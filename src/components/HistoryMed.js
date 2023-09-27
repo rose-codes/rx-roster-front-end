@@ -2,7 +2,7 @@ import MedCard from "./shared/MedCard";
 
 const HistoryMed = ({ med }) => {
   return (
-    <li className="medication-display" key={med._id}>
+    <li className="medication-display" key={med.medId}>
       <MedCard med={med} />
     </li>
   );

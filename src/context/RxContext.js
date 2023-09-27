@@ -16,7 +16,7 @@ export const medicationsReducer = (state, action) => {
     case "UPDATE_MEDICATION":
       const updateMedsList = (medsList, res) => {
         return medsList.map((med) => {
-          return med._id === res._id ? { ...med, ...res } : med;
+          return med.medId === res.medId ? { ...med, ...res } : med;
         });
       };
       return {

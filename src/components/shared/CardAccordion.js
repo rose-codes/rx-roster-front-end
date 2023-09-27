@@ -41,7 +41,7 @@ const CardAccordion = ({ med }) => {
           </Card.Header>
           <Accordion.Collapse eventKey={med._item}>
             <Card.Body>
-              <MedCard key={med._id} med={med} />
+              <MedCard key={med.medId} med={med} />
             </Card.Body>
           </Accordion.Collapse>
         </Card>

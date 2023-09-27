@@ -7,11 +7,11 @@ const CurrentMed = ({ med }) => {
 
   const handleButtonClick = () => {
     const changedStatus = { currentlyTaking: false };
-    updateMed(med._id, changedStatus);
+    updateMed(med.medId, changedStatus);
   };
 
   return (
-    <li className="medication-display" key={med._id}>
+    <li className="medication-display" key={med.medId}>
       <div className="container">
         <MedCard med={med} />
         <Button onClick={handleButtonClick}>No Longer Taking</Button>
