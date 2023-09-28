@@ -17,6 +17,7 @@ import LoginPage from "./pages/v2/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import SignUpPage from "./pages/v2/SignUpPage";
 import { useAuthContext } from "./hooks/useAuthContext";
+import Footer from "./components/shared/Footer";
 
 function App() {
   const { user } = useAuthContext();
@@ -43,6 +44,7 @@ function App() {
         />
         <Route path="/*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </RxProvider>
   );
 }

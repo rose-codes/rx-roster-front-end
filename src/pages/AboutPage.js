@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Footer from "../components/shared/Footer";
+
 const AboutPage = () => {
   return (
     <div className="about">
@@ -9,7 +9,6 @@ const AboutPage = () => {
       <p>
         <Link to="/">Back to Home</Link>
       </p>
-      <Footer />
     </div>
   );
 };

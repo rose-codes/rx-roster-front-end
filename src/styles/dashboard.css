@@ -139,3 +139,7 @@
     grid-template-rows: repeat(minmax(0, 1fr));
     grid-template-columns: 1fr 1fr;
 }
+
+.footer-component {
+    font-family: "Montserrat", "sans-serif";
+}
