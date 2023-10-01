@@ -18,21 +18,20 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import SignUpPage from "./pages/v2/SignUpPage";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Footer from "./components/shared/Footer";
+import SideNav from "./components/shared/SideNav";
 
 function App() {
   const { user } = useAuthContext();
   return (
     <RxProvider>
-      <div className="App">
-        <NavBar />
-      </div>
+      <div className="App">{!user && <NavBar />}</div>
       <Routes>
         <Route
           path="/"
-          element={user ? <Dashboard /> : <Navigate to="/login" />}
+          element={user ? <SideNav /> : <Navigate to="/login" />}
         />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/all-medications" element={<AllMedsPage />} />
+        <Route path="/all-medications" element={<SideNav />} />
         <Route
           path="/login"
           element={!user ? <LoginPage /> : <Navigate to="/" />}
@@ -44,7 +43,7 @@ function App() {
         />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {user && <Footer />}
     </RxProvider>
   );
 }

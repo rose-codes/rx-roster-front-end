@@ -4,8 +4,17 @@
 
 
 .dashboard-card {
+    @apply shadow-xl p-6 rounded-2xl;
+}
+
+.db-card-body {
     font-family: 'Montserrat', sans-serif;
-    @apply shadow p-6;
+    @apply py-2 px-4;
+}
+
+.db-card-body > h4 {
+    font-family: 'Tenor Sans', sans-serif;
+    
 }
 
 .form-text-input {
@@ -142,4 +151,13 @@
 
 .footer-component {
     font-family: "Montserrat", "sans-serif";
+}
+
+.side-logo {
+    font-family: "Tenor Sans", "sans-serif";
+    @apply sticky top-0 z-20 hidden items-center bg-opacity-90 px-4 py-2 backdrop-blur lg:flex;
+}
+
+.side-menu {
+    
 }

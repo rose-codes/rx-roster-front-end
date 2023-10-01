@@ -37,33 +37,41 @@ const Dashboard = () => {
   }, [dispatch, user]);
 
   return (
-    <section className="dashboard-container mb-2 gap-4">
-      <div className="header row-span-1 col-span-2 dashboard-heading">
-        <h1 className="py-4 my-3">Welcome Back, {user.firstName}</h1>
-      </div>
-      <div className="dashboard-card row-start-2 col-start-1">
-        <h5 className="mb-3">Current Medications</h5>
-        <div>
-          {medications && <CurrentMedsList medications={medications} />}
+    <section className="page-container mb-16">
+      <div className="dashboard-container gap-4">
+        <div className="header row-span-1 col-span-2 dashboard-heading">
+          <h1 className="mb-3">Welcome Back, {user.firstName}</h1>
         </div>
-      </div>
-
-      <div className="dashboard-card row-start-2 col-start-2">
-        <h5>Add a New Medication</h5>
-        {formDisplayed && <NewMedForm />}
-        <Button onClick={handleButtonClick}>
-          {formDisplayed ? "Hide Form" : "Show Form"}
-        </Button>
-      </div>
-
-      <div className="dashboard-card row-start-3 col-start-1">
-        <div className="py-2 px-4">
-          <h5>Prescription Schedule</h5>
-          {medications && <CalendarCard medications={medications} />}
+        <div className="dashboard-card row-start-2 col-start-1">
+          <div className="db-card-body">
+            <h4 className="mb-3">Current Medications</h4>
+            <div>
+              {medications && <CurrentMedsList medications={medications} />}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="dashboard-card row-start-3 col-start-2">
-        <h5>Pharmacies</h5>
+
+        <div className="dashboard-card row-start-2 col-start-2">
+          <div className="db-card-body">
+            <h4 className="mb-3">Add a New Medication</h4>
+            {formDisplayed && <NewMedForm />}
+            <Button onClick={handleButtonClick}>
+              {formDisplayed ? "Hide Form" : "Show Form"}
+            </Button>
+          </div>
+        </div>
+
+        <div className="dashboard-card row-start-3 col-start-1">
+          <div className="db-card-body">
+            <h4 className="mb-3">Prescription Schedule</h4>
+            {medications && <CalendarCard medications={medications} />}
+          </div>
+        </div>
+        <div className="dashboard-card row-start-3 col-start-2">
+          <div className="db-card-body">
+            <h4 className="mb-3">Pharmacies</h4>
+          </div>
+        </div>
       </div>
     </section>
   );
