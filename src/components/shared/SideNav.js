@@ -4,11 +4,11 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import Dashboard from "../../pages/v2/Dashboard";
 import { CiPillsBottle1 } from "react-icons/ci";
 import { FaPills } from "react-icons/fa6";
-import { FcAbout } from "react-icons/fc";
 import { RxDashboard } from "react-icons/rx";
 import AllMedsPage from "../../pages/AllMedsPage";
 import { ReactSVG } from "react-svg";
 import { MdOutlineDescription } from "react-icons/md";
+import { NewMedFormPage } from "../../pages/v2/NewMedFormPage";
 
 const SideNav = () => {
   const { logout } = useLogout();
@@ -25,6 +25,7 @@ const SideNav = () => {
       <div className="drawer-content flex flex-col justify-center">
         {user && location.pathname === "/all-medications" && <AllMedsPage />}
         {user && location.pathname === "/" && <Dashboard />}
+        {user && location.pathname === "/new-medication" && <NewMedFormPage />}
       </div>
       <div
         data-theme="pastel"

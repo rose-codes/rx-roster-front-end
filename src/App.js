@@ -19,6 +19,7 @@ import SignUpPage from "./pages/v2/SignUpPage";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Footer from "./components/shared/Footer";
 import SideNav from "./components/shared/SideNav";
+import { NewMedFormPage } from "./pages/v2/NewMedFormPage";
 
 function App() {
   const { user } = useAuthContext();
@@ -41,6 +42,7 @@ function App() {
           path="/signup"
           element={!user ? <SignUpPage /> : <Navigate to="/" />}
         />
+        <Route path="/new-medication" element={<SideNav />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       {user && <Footer />}

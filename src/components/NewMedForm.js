@@ -42,11 +42,8 @@ const NewMedForm = () => {
   };
 
   return (
-    <div className="form-container max-w-fit">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="grid auto-rows-max w-fit"
-      >
+    <div className="form-container">
+      <form onSubmit={handleSubmit(onSubmit)} className="grid auto-rows-max">
         <MedicationInput errors={errors} register={register} />
 
         <ProviderInput errors={errors} register={register} />

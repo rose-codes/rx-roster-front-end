@@ -1,5 +1,4 @@
 export const DashboardCurrentMed = ({ med }) => {
-  console.log("med:", med);
   return (
     <section
       className="medication grid grid-cols-2 bg-base-200 border-b-2 border-dashed border-slate-500 py-3 pl-3"

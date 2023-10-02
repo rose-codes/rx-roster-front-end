@@ -1,7 +1,7 @@
 const MedicationInput = ({ errors, register }) => {
   return (
     <section className="grid-row-start-1">
-      <div className="grid grid-rows-4 grid-cols-2">
+      <div className="grid grid-rows-4">
         <div className="row-start-1 col-start-1 w-6/12">
           <div className="input-group">
             <label>Generic Name*:</label>
