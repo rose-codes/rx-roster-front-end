@@ -22,7 +22,7 @@ const SideNav = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col justify-center">
         {user && location.pathname === "/all-medications" && <AllMedsPage />}
         {user && location.pathname === "/" && <Dashboard />}
       </div>
@@ -46,7 +46,7 @@ const SideNav = () => {
               data-svelte-h="svelte-pw6yxt"
             >
               <ReactSVG src="/assets/rxLogo.svg" className="w-12 h-12 -ml-2" />
-              <div class="font-title text-lg md:text-2xl">
+              <div className="font-title text-lg md:text-2xl">
                 <span className="text-color-neutral-content">RxRoster</span>
               </div>
             </Link>
@@ -156,7 +156,7 @@ const SideNav = () => {
             </li>
           </ul>
           <ul className="menu menu-sm lg:menu-md px-4 py-0"></ul>
-          <div className="bg-base-100 pointer-events-none sticky bottom-0 flex h-40 [mask-image:linear-gradient(transparent,#000000)]"></div>
+          <div className="bg-base-100 pointer-events-none sticky bottom-0 flex h-40 [mask-image:linear-gradient(transparent,#70ACC7)]"></div>
         </aside>
       </div>
     </div>

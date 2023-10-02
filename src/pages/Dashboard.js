@@ -1,10 +1,10 @@
 import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import CurrentMedsList from "../../components/CurrentMedsList";
-import NewMedForm from "../../components/NewMedForm";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { useRxContext } from "../../hooks/useRxContext";
-import { CalendarCard } from "../../components/CalendarCard";
+import CurrentMedsList from "../components/CurrentMedsList";
+import NewMedForm from "../components/NewMedForm";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useRxContext } from "../hooks/useRxContext";
+import { CalendarCard } from "../components/CalendarCard";
 
 const createEventsList = (list) => {
   let events = [];
@@ -37,7 +37,7 @@ const Dashboard = () => {
   }, [dispatch, user]);
 
   return (
-    <section className="page-container mb-16">
+    <section className="max-w-screen-xl flex basis-0 flex-col grow shrink flex-nowrap pb-3.5 mb-16">
       <div className="dashboard-container gap-4">
         <div className="header row-span-1 col-span-2 dashboard-heading">
           <h1 className="mb-3">Welcome Back, {user.firstName}</h1>

@@ -1,4 +1,4 @@
-import { Container, Row, div, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import CurrentMedsList from "../../components/CurrentMedsList";
 import NewMedForm from "../../components/NewMedForm";
@@ -37,10 +37,10 @@ const Dashboard = () => {
   }, [dispatch, user]);
 
   return (
-    <section className="page-container mb-16">
+    <section className="max-w-full flex basis-0 flex-col grow shrink flex-nowrap px-6 pb-16 xl:pr-2 pt-6">
       <div className="dashboard-container gap-4">
         <div className="header row-span-1 col-span-2 dashboard-heading">
-          <h1 className="mb-3">Welcome Back, {user.firstName}</h1>
+          <h3 className="mb-3 font-bold">Dashboard</h3>
         </div>
         <div className="dashboard-card row-start-2 col-start-1">
           <div className="db-card-body">
