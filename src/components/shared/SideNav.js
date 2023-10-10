@@ -155,6 +155,11 @@ const SideNav = () => {
                 <span>About</span>
               </Link>
             </li>
+            <li>
+              <button onClick={handleClick} className="mx-2">
+                <div className="-mt-1">Logout</div>
+              </button>
+            </li>
           </ul>
           <ul className="menu menu-sm lg:menu-md px-4 py-0"></ul>
           <div className="bg-base-100 pointer-events-none sticky bottom-0 flex h-40 [mask-image:linear-gradient(transparent,#70ACC7)]"></div>

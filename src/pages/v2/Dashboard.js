@@ -53,23 +53,8 @@ const Dashboard = () => {
 
         <div className="dashboard-card row-start-2 col-start-2">
           <div className="db-card-body">
-            <h4 className="mb-3">Add a New Medication</h4>
-            {formDisplayed && <NewMedForm />}
-            <Button onClick={handleButtonClick}>
-              {formDisplayed ? "Hide Form" : "Show Form"}
-            </Button>
-          </div>
-        </div>
-
-        <div className="dashboard-card row-start-3 col-start-1">
-          <div className="db-card-body">
             <h4 className="mb-3">Prescription Schedule</h4>
             {medications && <CalendarCard medications={medications} />}
-          </div>
-        </div>
-        <div className="dashboard-card row-start-3 col-start-2">
-          <div className="db-card-body">
-            <h4 className="mb-3">Pharmacies</h4>
           </div>
         </div>
       </div>
