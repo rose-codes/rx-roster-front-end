@@ -45,7 +45,6 @@ function App() {
         <Route path="/new-medication" element={<SideNav />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      {user && <Footer />}
     </RxProvider>
   );
 }
