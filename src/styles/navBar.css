@@ -25,6 +25,7 @@
 }
 
 .navbar-link-content {
+    font-family: 'Montserrat', 'sans-serif';
     @apply text-black no-underline px-1;
 }
 

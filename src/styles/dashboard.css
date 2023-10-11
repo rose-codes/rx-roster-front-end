@@ -155,7 +155,7 @@
 
 .side-logo {
     font-family: "Tenor Sans", "sans-serif";
-    @apply sticky top-0 z-20 hidden items-center bg-opacity-90 px-4 py-2 backdrop-blur lg:flex;
+    /* @apply sticky top-0 z-20 hidden items-center bg-opacity-90 px-4 py-2 backdrop-blur lg:flex; */
 }
 
 .side-menu {
