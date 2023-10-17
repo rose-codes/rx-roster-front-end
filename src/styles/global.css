@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./authForms.css";
+@import "./navBar.css";
+@import "./dashboard.css";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Tenor Sans', sans-serif;
+}
+
+:disabled {
+  cursor: not-allowed;
+}
+
+.invalid {
+    border: 1px solid red
+  }
+  
+  .error-message {
+    color: red
+  }
+  
+  .medication-display {
+    border: 1px solid black
+  }
+  
+  ol {
+    list-style: none;
+  }
+  
+  .meds-list {
+    border: 1px solid black;
+    border-radius: 5%
+  }
