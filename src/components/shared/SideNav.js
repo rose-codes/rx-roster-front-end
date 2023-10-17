@@ -1,4 +1,3 @@
-import { Link, useLocation } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { CiPillsBottle1 } from "react-icons/ci";
@@ -11,11 +10,11 @@ import { useState } from "react";
 import Dashboard from "../../pages/v2/Dashboard";
 import AllMedsPage from "../../pages/AllMedsPage";
 import { NewMedFormPage } from "../../pages/v2/NewMedFormPage";
+import Link from "next/link";
 
 const SideNav = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
-  const location = useLocation();
   const [open, setOpen] = useState(true);
   const Links = [
     { title: "Dashboard", svg: <RxDashboard />, page: "/" },
@@ -48,7 +47,7 @@ const SideNav = () => {
       >
         <div className="side-logo my-8 pl-8">
           <Link
-            to="/"
+            href="/"
             aria-current="page"
             aria-label="Homepage"
             className="btn btn-ghost !flex flex-0 px-2 justify-self-start items-center"
@@ -68,7 +67,7 @@ const SideNav = () => {
             return (
               <li className="my-3">
                 <Link
-                  to={link.page}
+                  href={link.page}
                   className="navbar-link-content flex gap-x-4 justify-self-start items-center font-title text-md md:text-lg"
                   data-sveltekit-preload-data="hover"
                 >
@@ -82,11 +81,11 @@ const SideNav = () => {
       </div>
       <div className="">
         <div className="drawer-content flex flex-col justify-center">
-          {user && location.pathname === "/all-medications" && <AllMedsPage />}
+          {/* {user && location.pathname === "/all-medications" && <AllMedsPage />}
           {user && location.pathname === "/" && <Dashboard />}
           {user && location.pathname === "/new-medication" && (
             <NewMedFormPage />
-          )}
+          )} */}
         </div>
       </div>
     </div>

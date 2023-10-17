@@ -21,9 +21,11 @@ export const DashboardCurrentMed = ({ med }) => {
       <div className="button-wrapper flex justify-center row-span-2 self-center">
         <button
           className="row-start-1 col-start-2 w-3/4 du-btn du-btn-primary"
-          onClick={() =>
-            document.getElementById(`current-med-modal-${medId}`).showModal()
-          }
+          onClick={() => {
+            if (typeof window === "object") {
+              document.getElementById(`current-med-modal-${medId}`).showModal();
+            }
+          }}
         >
           See More
         </button>

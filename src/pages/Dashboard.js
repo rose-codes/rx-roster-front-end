@@ -37,10 +37,10 @@ const Dashboard = () => {
   }, [dispatch, user]);
 
   return (
-    <section className="max-w-screen-xl flex basis-0 flex-col grow shrink flex-nowrap pb-3.5 mb-16">
+    <section className="max-w-full flex basis-0 flex-col grow shrink flex-nowrap px-6 pb-16 xl:pr-2 pt-6">
       <div className="dashboard-container gap-4">
         <div className="header row-span-1 col-span-2 dashboard-heading">
-          <h1 className="mb-3">Welcome Back, {user.firstName}</h1>
+          <h3 className="mb-3 font-bold">Dashboard</h3>
         </div>
         <div className="dashboard-card row-start-2 col-start-1">
           <div className="db-card-body">
@@ -53,23 +53,8 @@ const Dashboard = () => {
 
         <div className="dashboard-card row-start-2 col-start-2">
           <div className="db-card-body">
-            <h4 className="mb-3">Add a New Medication</h4>
-            {formDisplayed && <NewMedForm />}
-            <Button onClick={handleButtonClick}>
-              {formDisplayed ? "Hide Form" : "Show Form"}
-            </Button>
-          </div>
-        </div>
-
-        <div className="dashboard-card row-start-3 col-start-1">
-          <div className="db-card-body">
             <h4 className="mb-3">Prescription Schedule</h4>
             {medications && <CalendarCard medications={medications} />}
-          </div>
-        </div>
-        <div className="dashboard-card row-start-3 col-start-2">
-          <div className="db-card-body">
-            <h4 className="mb-3">Pharmacies</h4>
           </div>
         </div>
       </div>
