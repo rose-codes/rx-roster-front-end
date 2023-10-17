@@ -44,7 +44,7 @@ const SideNav = () => {
   return (
     <div className="flex" data-theme="pastel">
       <div
-        className={`w-20 md:w-80 duration-300 h-screen bg-neutral relative sidebar-container flex flex-col gap-y-4`}
+        className={`w-20 md:w-80 duration-300 bg-neutral relative sidebar-container flex flex-col gap-y-4`}
       >
         <div className="side-logo my-8 pl-8">
           <Link

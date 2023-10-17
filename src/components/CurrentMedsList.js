@@ -2,6 +2,7 @@ import { DashboardCurrentMed } from "./shared/DashboardCurrentMed";
 import { useLocation } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { NoMedications } from "./shared/NoMedications";
+import { Link } from "react-router-dom";
 
 const CurrentMedsList = ({ medications }) => {
   const location = useLocation();
@@ -12,24 +13,33 @@ const CurrentMedsList = ({ medications }) => {
         medications.map((med) => (
           <DashboardCurrentMed key={med.medId} med={med} />
         ))}
-      <button className="flex gap-1.5 items-center mt-3">
+      <Link
+        to="/all-medications"
+        className="flex gap-1.5 items-center mt-3 no-underline text-neutral-content"
+      >
         <span>All Current Medications</span>
         <span>
           <FaArrowRightLong />
         </span>
-      </button>
-      <button className="flex gap-1.5 items-center mt-3">
+      </Link>
+      <Link
+        to="/all-medications"
+        className="flex gap-1.5 items-center mt-3 no-underline text-neutral-content"
+      >
         <span>Medication History</span>
         <span>
           <FaArrowRightLong />
         </span>
-      </button>
-      <button className="flex gap-1.5 items-center mt-3">
+      </Link>
+      <Link
+        to="/all-medication"
+        className="flex gap-1.5 items-center mt-3 no-underline text-neutral-content"
+      >
         <span>Add a New Medication</span>
         <span>
           <FaArrowRightLong />
         </span>
-      </button>
+      </Link>
     </section>
   );
 };
