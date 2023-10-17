@@ -39,7 +39,7 @@ export const DashboardCurrentMed = ({ med }) => {
               <h3 className="font-bold text-lg">{genericName}</h3>
             </span>
             <span>
-              <h4>
+              <h4 className="font-bold text-md">
                 {strength} {capitalize(strengthUnits)}
               </h4>
             </span>
