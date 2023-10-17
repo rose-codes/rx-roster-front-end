@@ -11,7 +11,7 @@ const createEventsList = (list) => {
       title: `${med.genericName} ${med.strength}${med.strengthUnits}`,
       start: "2023-09-26",
       startRecur: "2023-09-26",
-      backgroundColor: "rgb(5 150 105)",
+      backgroundColor: "#C1ABC9",
       editable: true,
       id: med.medId,
     };
@@ -43,14 +43,14 @@ const StyleWrapper = styled.div`
   }
   .fc-col-header-cell-cushion {
     text-decoration: none;
-    color: rgb(5 150 105);
+    color: #c1abc9;
   }
 
   .fc-today-button.fc-button.fc-button-primary {
-    background-color: rgb(5 150 105);
+    background-color: #c1abc9;
   }
   .fc-button-group > button {
-    background-color: rgb(5 150 105);
+    background-color: #c1abc9;
   }
 `;
 

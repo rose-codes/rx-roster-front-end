@@ -17,7 +17,7 @@ export const DashboardCurrentMed = ({ med }) => {
         </span>
       </div>
       <div className="button-wrapper flex justify-center row-span-2 self-center">
-        <button className="row-start-1 col-start-2 w-3/4 btn btn-secondary">
+        <button className="row-start-1 col-start-2 w-3/4 du-btn du-btn-primary">
           See More
         </button>
       </div>

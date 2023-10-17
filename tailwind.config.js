@@ -6,6 +6,7 @@ module.exports = {
   },
   daisyui: {
     themes: ["cupcake", "dracula", "pastel"],
+    prefix: "du-",
   },
   plugins: [
     require("daisyui"),
