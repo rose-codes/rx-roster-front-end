@@ -1,73 +1,74 @@
-h1 {
+h1.form_heading {
     font-family: 'Tenor Sans', sans-serif;
+    @apply py-3 my-3;
 }
 
-.page-container {
+.page_container {
     @apply max-w-screen-xl flex basis-0 flex-col grow shrink flex-nowrap px-3.5 pb-3.5 mx-auto;
 }
 
-.content-container {
+.content_container {
     @apply flex basis-auto flex-col grow shrink flex-wrap content-center;
 }
 
-.form-content-container {
+.form_content_container {
     @apply justify-center max-w-lg;
 }
 
-.form-container {
+.form_container {
     @apply p-7 bg-sky-100 border-solid border-sky-200 border-2 rounded-sm mb-5;
     font-family: 'Montserrat', sans-serif;
 }
 
-.input-group {
+.input_group {
     @apply mb-5 flex flex-col;
 }
 
-label {
+/* label {
     @apply mb-1;
-}
+} */
 
-.input-field {
+.input_field {
     @apply border-b-4 border-b-sky-200 rounded-t-sm shadow-none ps-1.5 pb-1.5 pl-2.5 pr-9 pt-1.5;
     min-height: 40px;
     @apply delay-0 duration-150 ease-in-out ease-in-out;
     transition-property: border-color, box-shadow;
 }
 
-.input-field:focus-visible {
+.input_field:focus-visible {
     @apply outline-none;
 }
 
-button.submit-button {
+button.submit_button {
     @apply border-2 w-full h-12 bg-black text-white;
 }
 
-button.submit-button:enabled:hover {
+button.submit_button:enabled:hover {
     @apply bg-slate-800;
 }
 
-.submit-button:disabled {
+.submit_button:disabled {
     @apply bg-slate-200 font-extrabold text-slate-500;
 }
 
-.auth-redirect {
+.auth_redirect {
     @apply border-2 border-black p-3 flex justify-center;
 }
 
-.auth-redirect-content {
+.auth_redirect_content {
     @apply justify-center;
 }
 
-a.auth-link {
+a.auth_link {
     font-family: 'Tenor Sans', sans-serif;
     @apply text-black no-underline;
 }
 
-a.auth-link:hover {
+a.auth_link:hover {
     @apply text-slate-700;
 }
 
-.extra-text {
+.extra_text {
     @apply mb-3 flex justify-center;
     font-family: 'Montserrat', sans-serif;
 }

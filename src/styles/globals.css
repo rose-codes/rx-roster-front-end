@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./authForms.css";
+@import "./authForms.module.css";
 @import "./navBar.css";
 @import "./dashboard.css";
 

@@ -1,4 +1,3 @@
-// import { useLocation } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import Link from "next/link";
@@ -6,7 +5,6 @@ import Link from "next/link";
 const NavBar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
-  // const location = useLocation();
 
   const handleClick = () => {
     logout();

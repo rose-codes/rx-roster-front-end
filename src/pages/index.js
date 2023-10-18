@@ -1,10 +1,10 @@
+import NavBar from "../components/shared/NavBar";
 import { useForm } from "react-hook-form";
-// import { useNavigate } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import Link from "next/link";
+import AuthFormStyles from "../styles/authForms.module.css";
 
 const LoginPage = () => {
-  // const navigate = useNavigate();
   const { login } = useLogin();
   const {
     register,
@@ -25,15 +25,18 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="page-container">
-        <div className="content-container">
-          <div className="form-content-container">
-            <div className="title-container">
-              <h1 className="py-3 my-3">Log In to RxRoster</h1>
+      <NavBar />
+      <div className={AuthFormStyles.page_container}>
+        <div className={AuthFormStyles.content_container}>
+          <div className={AuthFormStyles.form_content_container}>
+            <div className={AuthFormStyles.title_container}>
+              <h1 className={AuthFormStyles.form_heading}>
+                Log In to RxRoster
+              </h1>
             </div>
-            <div className="form-container">
+            <div className={AuthFormStyles.form_container}>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>Email</label>
                   <input
                     type="email"
@@ -48,13 +51,13 @@ const LoginPage = () => {
                       },
                     })}
                     placeholder="jane.doe@example.com"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
-                  <small className="error-message">
+                  <small className={AuthFormStyles.error_message}>
                     {errors?.email && errors.email.message}
                   </small>
                 </div>
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>Password</label>
                   <input
                     type="password"
@@ -65,32 +68,27 @@ const LoginPage = () => {
                       },
                     })}
                     placeholder="Password"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
-                  <small>
-                    <Link href="/forgot-password" className="auth-link">
-                      Forgot Password?
-                    </Link>
-                  </small>
-                  <small className="error-message">
+                  <small className={AuthFormStyles.error_message}>
                     {errors?.password && errors.password.message}
                   </small>
                 </div>
                 <button
                   type="submit"
-                  className="submit-button"
+                  className={AuthFormStyles.submit_button}
                   disabled={!isValid}
                 >
                   Login
                 </button>
               </form>
             </div>
-            <div className="extra-text">
+            <div className={AuthFormStyles.extra_text}>
               <div>Don't have an account? Click below to sign up!</div>
             </div>
-            <div className="auth-redirect">
-              <div className="auth-redirect-content">
-                <Link href="/signup" className="auth-link">
+            <div className={AuthFormStyles.auth_redirect}>
+              <div className={AuthFormStyles.auth_redirect_content}>
+                <Link href="/signup" className={AuthFormStyles.auth_link}>
                   Join RxRoster!
                 </Link>
               </div>
