@@ -1,5 +1,5 @@
 import NewMedForm from "../components/NewMedForm";
-export const NewMedFormPage = () => {
+const NewMedFormPage = () => {
   return (
     <section className="max-w-full flex basis-0 flex-col grow shrink flex-nowrap px-6 pb-16 xl:pr-2 pt-6">
       <div className="dashboard-container gap-4 flex flex-col">
@@ -14,3 +14,5 @@ export const NewMedFormPage = () => {
     </section>
   );
 };
+
+export default NewMedFormPage;
