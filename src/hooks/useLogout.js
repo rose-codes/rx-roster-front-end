@@ -1,3 +1,4 @@
+"use client";
 import { useAuthContext } from "./useAuthContext";
 import { useRxContext } from "./useRxContext";
 

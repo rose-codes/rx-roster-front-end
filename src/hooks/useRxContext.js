@@ -1,3 +1,4 @@
+"use client";
 import { RxContext } from "../context/RxContext";
 import { useContext } from "react";
 
