@@ -6,7 +6,7 @@ export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
-  const backendURI = process.env.REACT_APP_BACKEND_URL;
+  const backendURI = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const login = async (email, password) => {
     setIsLoading(true);

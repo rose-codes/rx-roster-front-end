@@ -33,7 +33,7 @@ export const RxProvider = ({ children }) => {
   });
 
   const { user } = useAuthContext();
-  const backendURI = process.env.REACT_APP_BACKEND_URL;
+  const backendURI = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   // @todo: refactor routes with Axios
   const getMedications = async () => {
