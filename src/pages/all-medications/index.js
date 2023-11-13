@@ -1,8 +1,8 @@
-import CompleteMedHistory from "../components/CompleteMedHistory";
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useRxContext } from "../hooks/useRxContext";
+import CompleteMedHistory from "../../components/CompleteMedHistory";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useRxContext } from "../../hooks/useRxContext";
 import { Container, Row, Col } from "react-bootstrap";
-import NewMedForm from "../components/NewMedForm";
+import NewMedForm from "../../components/NewMedForm";
 import { useEffect } from "react";
 const AllMedsPage = () => {
   const { user } = useAuthContext();

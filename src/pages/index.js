@@ -1,11 +1,16 @@
 import NavBar from "../components/shared/NavBar";
 import { useForm } from "react-hook-form";
 import { useLogin } from "../hooks/useLogin";
+import { useAuthContext } from "../hooks/useAuthContext";
 import Link from "next/link";
 import AuthFormStyles from "../styles/authForms.module.css";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const LoginPage = () => {
   const { login } = useLogin();
+  const router = useRouter();
+  const { dispatch, user } = useAuthContext();
   const {
     register,
     handleSubmit,
@@ -19,9 +24,14 @@ const LoginPage = () => {
     mode: "onBlur",
   });
   const onSubmit = async (formData) => {
-    console.log(formData);
     await login(formData.email, formData.password);
   };
+
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard");
+    }
+  }, [dispatch, user]);
 
   return (
     <>
@@ -88,7 +98,7 @@ const LoginPage = () => {
             </div>
             <div className={AuthFormStyles.auth_redirect}>
               <div className={AuthFormStyles.auth_redirect_content}>
-                <Link href="/signup" className={AuthFormStyles.auth_link}>
+                <Link href="/register" className={AuthFormStyles.auth_link}>
                   Join RxRoster!
                 </Link>
               </div>

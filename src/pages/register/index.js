@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { useSignUp } from "../hooks/useSignup";
+import { useSignUp } from "../../hooks/useSignup";
+import AuthFormStyles from "../../styles/authForms.module.css";
+import NavBar from "../../components/shared/NavBar";
 
-const SignUpPage = () => {
+const RegisterPage = () => {
   const {
     register,
     handleSubmit,
@@ -21,21 +23,21 @@ const SignUpPage = () => {
 
   const { signup, error, isLoading } = useSignUp();
 
-  // const onPasswordChange = (e) => {
-  //   e.preventDefault();
-  //   return (
-  //     <small className="passwordRequirements">
-  //       <div>Password must include:</div>
-  //       <ul>
-  //         <li>at least 8 characters</li>
-  //         <li>at least one UPPERCASE letter</li>
-  //         <li>at least one LOWERCASE letter</li>
-  //         <li>at least one NUMBER</li>
-  //         <li>at least one special character</li>
-  //       </ul>
-  //     </small>
-  //   );
-  // };
+  const onPasswordChange = (e) => {
+    e.preventDefault();
+    return (
+      <small className="passwordRequirements">
+        <div>Password must include:</div>
+        <ul>
+          <li>at least 8 characters</li>
+          <li>at least one UPPERCASE letter</li>
+          <li>at least one LOWERCASE letter</li>
+          <li>at least one NUMBER</li>
+          <li>at least one special character</li>
+        </ul>
+      </small>
+    );
+  };
 
   const onSubmit = async (formValues) => {
     console.log("submission obj", formValues);
@@ -50,15 +52,16 @@ const SignUpPage = () => {
 
   return (
     <>
-      <div className="page-container">
-        <div className="content-container">
-          <div className="form-content-container">
-            <div className="title-container">
+      <NavBar />
+      <div className={AuthFormStyles.page_container}>
+        <div className={AuthFormStyles.content_container}>
+          <div className={AuthFormStyles.form_content_container}>
+            <div className={AuthFormStyles.title_container}>
               <h1 className="py-3 my-3 text-black">Sign Up for RxRoster</h1>
             </div>
-            <div className="form-container">
+            <div className={AuthFormStyles.form_container}>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>First Name:</label>
                   <input
                     type="text"
@@ -69,10 +72,10 @@ const SignUpPage = () => {
                       },
                     })}
                     placeholder="First Name"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
                 </div>
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>Last Name:</label>
                   <input
                     type="text"
@@ -83,10 +86,10 @@ const SignUpPage = () => {
                       },
                     })}
                     placeholder="Surname"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
                 </div>
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>Date of Birth:</label>
                   <input
                     type="text"
@@ -102,19 +105,19 @@ const SignUpPage = () => {
                     })}
                     // @todo: verify date format
                     placeholder="MM/DD/YYYY"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
                 </div>
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>Phone Number:</label>
                   <input
                     type="text"
                     {...register("phoneNumber")}
                     placeholder="XXX-XXX-XXXX"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
                 </div>
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>Email:</label>
                   <input
                     type="email"
@@ -129,11 +132,11 @@ const SignUpPage = () => {
                       },
                     })}
                     placeholder="Email"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
                 </div>
                 {/* @todo: Add Street Address fields */}
-                <div className="input-group">
+                <div className={AuthFormStyles.input_group}>
                   <label>Password:</label>
                   <small className="text-sm">
                     <div>Password must include:</div>
@@ -159,23 +162,23 @@ const SignUpPage = () => {
                       },
                     })}
                     placeholder="Password"
-                    className="input-field"
+                    className={AuthFormStyles.input_field}
                   ></input>
                 </div>
 
                 <button
                   type="submit"
                   disabled={!isValid}
-                  className="submit-button"
+                  className={AuthFormStyles.submit_button}
                 >
                   SIGN UP
                 </button>
               </form>
             </div>
 
-            <div className="auth-redirect">
-              <div className="auth-redirect-content">
-                <Link href="/login" className="auth-link">
+            <div className={AuthFormStyles.auth_redirect}>
+              <div className={AuthFormStyles.auth_redirect_content}>
+                <Link href="/" className={AuthFormStyles.auth_link}>
                   Already have an account?
                 </Link>
               </div>
@@ -187,4 +190,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default RegisterPage;
