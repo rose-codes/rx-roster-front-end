@@ -21,11 +21,13 @@ export const useLogin = () => {
     const json = await response.json();
 
     if (!response.ok) {
+      console.log("json not", response);
       setIsLoading(false);
       setError(json.error);
     }
     if (response.ok) {
       //save user to local storage
+      console.log("json", response);
       localStorage.setItem("user", JSON.stringify(json));
       //update Auth Context
       dispatch({ type: "LOGIN", payload: json });
