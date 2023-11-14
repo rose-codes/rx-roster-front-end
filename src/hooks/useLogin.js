@@ -11,7 +11,7 @@ export const useLogin = () => {
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
-
+    console.log("prod backendURI:", backendURI);
     const response = await fetch(`${backendURI}/api/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

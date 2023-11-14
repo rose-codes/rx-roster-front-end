@@ -17,7 +17,7 @@ export const useSignUp = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ firstName, surname, email, password }),
     });
-
+    console.log("prod backendURI:", backendURI);
     const json = await response.json();
 
     if (!response.ok) {
