@@ -34,7 +34,6 @@ export const RxProvider = ({ children }) => {
 
   const { user } = useAuthContext();
   const backendURI = process.env.NEXT_PUBLIC_BACKEND_URL;
-  console.log("prod backendURI:", backendURI);
 
   // @todo: refactor routes with Axios
   const getMedications = async () => {

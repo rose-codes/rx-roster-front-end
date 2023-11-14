@@ -40,7 +40,6 @@ const RegisterPage = () => {
   };
 
   const onSubmit = async (formValues) => {
-    console.log("submission obj", formValues);
     await signup(
       formValues.firstName,
       formValues.surname,

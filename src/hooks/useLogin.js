@@ -11,7 +11,7 @@ export const useLogin = () => {
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
-    console.log("prod backendURI:", backendURI);
+
     const response = await fetch(`${backendURI}/api/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,13 +21,11 @@ export const useLogin = () => {
     const json = await response.json();
 
     if (!response.ok) {
-      console.log("json not", response);
       setIsLoading(false);
       setError(json.error);
     }
     if (response.ok) {
       //save user to local storage
-      console.log("json", response);
       localStorage.setItem("user", JSON.stringify(json));
       //update Auth Context
       dispatch({ type: "LOGIN", payload: json });

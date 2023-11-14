@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 const Dashboard = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
-  const [open, setOpen] = useState(true);
+  const [calledPush, setCalledPush] = useState(true);
   const { medications, dispatch, getCurrentMedications } = useRxContext();
   const [formDisplayed, setFormDisplayed] = useState(false);
   const router = useRouter();
@@ -28,8 +28,10 @@ const Dashboard = () => {
   useEffect(() => {
     if (user) {
       getCurrentMedications();
+      return;
     } else {
       router.push("/");
+      setCalledPush(true);
     }
   }, [dispatch, user]);
   const Links = [
