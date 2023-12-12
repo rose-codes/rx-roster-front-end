@@ -3,22 +3,22 @@ h1.form_heading {
     @apply py-3 my-3;
 }
 
-.page_container {
+/* .page_container {
     @apply max-w-screen-xl flex basis-0 flex-col grow shrink flex-nowrap px-3.5 pb-3.5 mx-auto;
-}
+} */
 
-.content_container {
+/* .content_container {
     @apply flex basis-auto flex-col grow shrink flex-wrap content-center;
-}
+} */
 
-.form_content_container {
+/* .form_content_container {
     @apply justify-center max-w-lg;
-}
+} */
 
-.form_container {
+/* .form_container {
     @apply p-7 bg-sky-100 border-solid border-sky-200 border-2 rounded-sm mb-5;
     font-family: 'Montserrat', sans-serif;
-}
+} */
 
 .input_group {
     @apply mb-5 flex flex-col;
@@ -52,7 +52,7 @@ button.submit_button:enabled:hover {
 }
 
 .auth_redirect {
-    @apply border-2 border-black p-3 flex justify-center;
+    @apply border-2 border-black p-3 flex justify-center mb-12 sm:mb-16;
 }
 
 .auth_redirect_content {
