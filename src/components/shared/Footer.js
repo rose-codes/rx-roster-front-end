@@ -6,21 +6,19 @@ import React from "react";
 const Footer = () => {
   return (
     <div data-theme="pastel" className="footer-component">
-      <footer className="footer px-10 py-4 bg-neutral text-neutral-content">
-        <aside>
-          <ReactSVG
-            src="/assets/rxLogo.svg"
-            className="w-20 h-20 -ml-4 -mb-4"
-          />
+      <footer className="footer px-10 py-2 bg-neutral text-neutral-content grid grid-cols-2">
+        <aside className="flex flex-col">
+          <ReactSVG src="/assets/rxLogo.svg" className="w-20 h-20 -ml-4" />
 
-          <p>
+          <h3 className="font-bold mt-1 sm:mt-3">
             RxRoster
-            <br />A full-stack medication tracker by @rose-codes, circa 2023.
-          </p>
+            <br className="font-normal" />A full-stack medication tracker by
+            @rose-codes, circa 2023.
+          </h3>
         </aside>
-        <nav>
-          <header className="footer-title">Social</header>
-          <div className="grid grid-flow-col gap-4">
+        <nav className="flex flex-col justify-center">
+          <header className="font-bold">Social</header>
+          <div className="flex gap-4 sm:gap-5">
             <a
               href="https://github.com/rose-codes/rx-roster-front-end"
               className="link"
