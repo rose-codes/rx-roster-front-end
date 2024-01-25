@@ -17,11 +17,11 @@
     
 }
 
-.form-text-input {
+/* .form-text-input {
     @apply appearance-none box-border block;
     font-family: "Montserrat", sans-serif;
     @apply text-base font-normal leading-6 px-3 py-1.5 text-start;
-}
+} */
 
 .form-select-input {
     @apply appearance-none bg-white;

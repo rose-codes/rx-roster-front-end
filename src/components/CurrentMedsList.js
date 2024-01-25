@@ -12,31 +12,30 @@ const CurrentMedsList = ({ medications }) => {
       ))}
       <Link
         href="/all-medications"
-        className="flex gap-1.5 items-center mt-3 no-underline text-neutral-content"
+        className="flex gap-1.5 text-sm items-center justify-center no-underline text-neutral-content border rounded-full p-2 mt-3 sm:mt-6 sm:p-4 sm:gap-2 sm:text-base"
       >
-        <span>All Current Medications</span>
-        <span>
-          <FaArrowRightLong />
-        </span>
+        <span>View More Medications</span>
       </Link>
-      <Link
-        href="/all-medications"
-        className="flex gap-1.5 items-center mt-3 no-underline text-neutral-content"
-      >
-        <span>Medication History</span>
-        <span>
-          <FaArrowRightLong />
-        </span>
-      </Link>
-      <Link
-        href="/all-medication"
-        className="flex gap-1.5 items-center mt-3 no-underline text-neutral-content"
-      >
-        <span>Add a New Medication</span>
-        <span>
-          <FaArrowRightLong />
-        </span>
-      </Link>
+      <div className="flex">
+        <Link
+          href="/all-medications"
+          className="flex gap-1.5 text-sm items-center no-underline text-neutral-content border rounded-full p-2 sm:p-3 sm:gap-2 sm:text-base"
+        >
+          <span>Medication History</span>
+          <span>
+            <FaArrowRightLong />
+          </span>
+        </Link>
+        <Link
+          href="/all-medication"
+          className="flex gap-1.5 text-sm items-center no-underline text-neutral-content border rounded-full p-2 sm:p-3 sm:gap-2 sm:text-base"
+        >
+          <span>Add a New Medication</span>
+          <span>
+            <FaArrowRightLong />
+          </span>
+        </Link>
+      </div>
     </section>
   );
 };

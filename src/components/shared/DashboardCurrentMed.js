@@ -8,15 +8,15 @@ export const DashboardCurrentMed = ({ med }) => {
       className="medication grid grid-cols-2 bg-base-200 border-b-2 border-dashed border-slate-500 py-3 pl-3"
       data-theme="pastel"
     >
-      <h5 className="row-start-1 col-start-1 font-extrabold">
-        {capitalize(genericName)}
+      <h5 className="row-start-1 col-start-1 font-extrabold text-xl sm:text-2xl capitalize mb-1 sm:mb-2">
+        {genericName}
       </h5>
       <div className="medication-details row-start-2 col-start-1 flex gap-2 text-info-content -mt-2">
         <span>
           {strength}
           {strengthUnits}
         </span>
-        <span>{capitalize(medForm)}</span>
+        <span className="capitalize">{medForm}</span>
       </div>
       <div className="button-wrapper flex justify-center row-span-2 self-center">
         <button
